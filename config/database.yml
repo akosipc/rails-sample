@@ -1,0 +1,15 @@
+default: &default
+  adapter:  postgresql
+  host:     localhost
+
+development:
+  <<: *default
+  database: rigpirate_development
+
+test:
+  <<: *default
+  database: rigpirate_test
+
+production:
+  <<: *default
+  database: rigpirate_production
