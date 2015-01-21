@@ -16,11 +16,10 @@ gem "rails_admin"
 gem "bootstrap-sass"
 gem "font-awesome-rails"
 gem "mailboxer"
-gem "activity_feed"
+gem "public_activity"
 gem "geocoder"
 gem "acts_as_votable"
 gem "leaderboard"
-
 
 group :development do
   gem "byebug"

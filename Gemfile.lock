@@ -36,8 +36,6 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
-    activity_feed (3.1.0)
-      leaderboard
     acts_as_votable (0.10.0)
     amistad (0.10.2)
     arel (6.0.0)
@@ -155,6 +153,11 @@ GEM
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
       slop (~> 3.4)
+    public_activity (1.4.2)
+      actionpack (>= 3.0.0)
+      activerecord (>= 3.0)
+      i18n (>= 0.5.0)
+      railties (>= 3.0.0)
     quiet_assets (1.1.0)
       railties (>= 3.1, < 5.0)
     rack (1.6.0)
@@ -259,7 +262,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  activity_feed
   acts_as_votable
   amistad
   bootstrap-sass
@@ -276,6 +278,7 @@ DEPENDENCIES
   leaderboard
   mailboxer
   pg
+  public_activity
   quiet_assets
   rails (= 4.2.0)
   rails_admin
