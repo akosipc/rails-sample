@@ -19,6 +19,7 @@ gem "mailboxer"
 gem "activity_feed"
 gem "geocoder"
 gem "acts_as_votable"
+gem "leaderboard"
 
 
 group :development do

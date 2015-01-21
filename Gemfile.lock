@@ -273,6 +273,7 @@ DEPENDENCIES
   guard-livereload
   html2haml
   jquery-rails
+  leaderboard
   mailboxer
   pg
   quiet_assets
