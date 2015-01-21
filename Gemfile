@@ -17,6 +17,9 @@ gem "bootstrap-sass"
 gem "font-awesome-rails"
 gem "mailboxer"
 gem "activity_feed"
+gem "geocoder"
+gem "acts_as_votable"
+
 
 group :development do
   gem "byebug"

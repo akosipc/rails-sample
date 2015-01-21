@@ -38,6 +38,7 @@ GEM
       tzinfo (~> 1.1)
     activity_feed (3.1.0)
       leaderboard
+    acts_as_votable (0.10.0)
     amistad (0.10.2)
     arel (6.0.0)
     autoprefixer-rails (5.0.0.1)
@@ -91,6 +92,7 @@ GEM
     foreigner (1.7.2)
       activerecord (>= 3.0.0)
     formatador (0.2.5)
+    geocoder (1.2.6)
     globalid (0.3.0)
       activesupport (>= 4.1.0)
     guard (2.1.1)
@@ -258,6 +260,7 @@ PLATFORMS
 
 DEPENDENCIES
   activity_feed
+  acts_as_votable
   amistad
   bootstrap-sass
   byebug
@@ -265,6 +268,7 @@ DEPENDENCIES
   coffee-rails (~> 4.1.0)
   devise
   font-awesome-rails
+  geocoder
   guard (~> 2.1.1)
   guard-livereload
   html2haml
