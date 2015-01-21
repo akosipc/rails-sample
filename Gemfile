@@ -15,6 +15,8 @@ gem "devise"
 gem "rails_admin"
 gem "bootstrap-sass"
 gem "font-awesome-rails"
+gem "mailboxer"
+gem "activity_feed"
 
 group :development do
   gem "byebug"
