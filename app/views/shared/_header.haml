@@ -13,7 +13,7 @@
       %ul.nav.navbar-nav.navbar-right
         - if user_signed_in?
           %li= link_to "Quests", "#"
-          %li= link_to "Post", "#"
+          %li= link_to "New Post", new_post_path, role: "history-trigger", data: { toggle: "modal" , target: "#modal" }
           %li= link_to "Messages", "#"
           %li= link_to "Profile", profile_path
           %li= link_to "Friends", user_friendships_path(current_user)

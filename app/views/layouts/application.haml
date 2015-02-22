@@ -11,4 +11,11 @@
     = render "shared/messages"
     .content
       = yield
+    = render "shared/modal"
     = render "shared/footer"
+
+:javascript
+  $(function(){
+    RigPirate.Modals.close();
+    RigPirate.Modals.watch();
+  })

@@ -1,12 +1,10 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!
 
-  def index
-    @posts = current_user.posts
-  end
-
   def new
     @post = current_user.posts.build
+
+    render partial: "form", layout: false if request.xhr?
   end
 
   def edit

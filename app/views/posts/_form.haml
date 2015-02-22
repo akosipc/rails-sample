@@ -1,0 +1,17 @@
+.modal-content
+  .modal-header
+    %button.close{ data: { dismiss: "modal" } }
+      %span= "&times;".html_safe
+    %h4.modal-title New Post
+  = reform_for @post do |f|
+    .modal-body
+      = f.input :content, type: "text", class: "form-control", role: "autoexpand"
+    .modal-footer
+      %button.btn.btn-default{ data: { dismiss: "modal" } } Cancel
+      = f.submit "Post", class: "btn btn-primary"
+
+:javascript
+  $(function(){
+    RigPirate.Modals.close();
+    RigPirate.Autoexpand.init();
+  })

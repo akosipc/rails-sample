@@ -118,6 +118,8 @@ GEM
     haml (4.0.6)
       tilt
     hike (1.2.3)
+    historyjs-rails (1.0.1)
+      railties (>= 3.0)
     hitimes (1.2.2)
     html2haml (2.0.0)
       erubis (~> 2.7.0)
@@ -293,6 +295,7 @@ DEPENDENCIES
   geocoder
   guard (~> 2.1.1)
   guard-livereload
+  historyjs-rails
   html2haml
   jquery-rails
   leaderboard
