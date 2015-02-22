@@ -13,6 +13,7 @@ gem "amistad"
 gem "cancan"
 gem "virtus"
 gem "reformed", github: "akosipc/reformed"
+gem "chosen-rails"
 
 gem "devise"
 gem "rails_admin"
@@ -23,8 +24,8 @@ gem "public_activity"
 gem "geocoder"
 gem "acts_as_votable"
 gem "leaderboard"
-
 gem "historyjs-rails"
+gem "mailboxer", github: "div/mailboxer", branch: "rails42-foreigner"
 
 group :development do
   gem "byebug"

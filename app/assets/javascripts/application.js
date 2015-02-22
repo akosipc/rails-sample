@@ -1,6 +1,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.autoexpand
+//= require chosen-jquery
 //= require bootstrap-sprockets
 //= require bootstrap/alert
 //= require bootstrap/modal
@@ -12,4 +13,5 @@
 
 $(function(){
   RigPirate.Autoexpand.init()
+  RigPirate.Tags.init()
 })

@@ -4,6 +4,15 @@ GIT
   specs:
     reformed (0.0.1)
 
+GIT
+  remote: git://github.com/div/mailboxer.git
+  revision: 41c9d8de2e0ad4dc511718074228d40a1ba96ebe
+  branch: rails42-foreigner
+  specs:
+    mailboxer (0.12.4)
+      carrierwave (>= 0.5.8)
+      rails (>= 3.2.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -66,8 +75,19 @@ GEM
       debugger-linecache (~> 1.2)
       slop (~> 3.6)
     cancan (1.6.10)
+    carrierwave (0.10.0)
+      activemodel (>= 3.2.0)
+      activesupport (>= 3.2.0)
+      json (>= 1.7)
+      mime-types (>= 1.16)
     celluloid (0.16.0)
       timers (~> 4.0.0)
+    chosen-rails (1.3.0)
+      coffee-rails (>= 3.2)
+      compass-rails (>= 1.1.2)
+      railties (>= 3.0)
+      sass-rails (>= 3.2)
+    chunky_png (1.3.4)
     coderay (1.1.0)
     coercible (1.0.0)
       descendants_tracker (~> 0.0.1)
@@ -79,6 +99,22 @@ GEM
       execjs
     coffee-script-source (1.8.0)
     columnize (0.9.0)
+    compass (1.0.3)
+      chunky_png (~> 1.2)
+      compass-core (~> 1.0.2)
+      compass-import-once (~> 1.0.5)
+      rb-fsevent (>= 0.9.3)
+      rb-inotify (>= 0.9)
+      sass (>= 3.3.13, < 3.5)
+    compass-core (1.0.3)
+      multi_json (~> 1.0)
+      sass (>= 3.3.0, < 3.5)
+    compass-import-once (1.0.5)
+      sass (>= 3.2, < 3.5)
+    compass-rails (2.0.4)
+      compass (~> 1.0.0)
+      sass-rails (<= 5.0.1)
+      sprockets (< 2.13)
     daemons (1.1.9)
     debug_inspector (0.0.2)
     debugger-linecache (1.2.0)
@@ -288,6 +324,7 @@ DEPENDENCIES
   bootswatch-rails
   byebug
   cancan
+  chosen-rails
   coderay
   coffee-rails (~> 4.1.0)
   devise
@@ -300,6 +337,7 @@ DEPENDENCIES
   jquery-rails
   leaderboard
   letter_opener
+  mailboxer!
   pg
   public_activity
   quiet_assets

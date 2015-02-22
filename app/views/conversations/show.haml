@@ -1,0 +1,16 @@
+.row
+  .col-lg-3.col-md-3.col-xs-3.sidebar
+    = render "shared/sidebar"
+  .col-lg-9.col-md-9.col-xs-9.central
+    .pull-right
+      -#= raise user_ids(@conversation).to_yaml
+      = link_to "New Message", new_conversation_path( conversation_id: @conversation.id, user_ids: user_ids(@conversation)), role: "history-trigger", data: { toggle: "modal", target: "#modal" }, class: "btn btn-default"
+
+    - @conversation.messages.each do |message|
+      .col-xs-12.col-md-12.col-lg-12.message
+        .holder{ class: "#{pull_right_if_mine(message)}" }
+          %strong= message.sender.full_name
+          %p= message.body
+      .clearfix
+      %hr
+

@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
   include Amistad::FriendModel
 
   acts_as_voter
+  acts_as_messageable
 
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable
 
@@ -14,6 +15,12 @@ class User < ActiveRecord::Base
 
   def full_name
     "#{first_name} #{last_name}"
+  end
+
+  def sanitized_friends
+    self.friends.map do |friend|
+      [friend.full_name, friend.id]
+    end
   end
 
 end

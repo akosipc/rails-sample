@@ -1,0 +1,25 @@
+.modal-content
+  .modal-header
+    %button.close{ data: { dismiss: "modal" } }
+      %span= "&times;".html_safe
+    %h4.modal-title New Message
+
+  = reform_for @message, url: conversations_path do |f|
+    = f.hidden_field :conversation_id, value: params[:conversation_id]
+    .modal-body
+      .form-group
+        = f.label :recipient_ids, "Recipients"
+        = f.select :recipient_ids, options_for_select(current_user.sanitized_friends, params[:user_ids]), {}, { class: "form-control", placeholder: "Friends", role: "tagsinput", prompt: "Select User", multiple: true }
+
+      = f.input :body, as: :text, class: "form-control", role: "autoexpand"
+
+    .modal-footer
+      %button.btn.btn-default{ data: { dismiss: "modal" } } Cancel
+      = f.submit "Send", class: "btn btn-primary"
+
+:javascript
+  $(function(){
+    RigPirate.Modals.close();
+    RigPirate.Autoexpand.init();
+    RigPirate.Tags.init();
+  })

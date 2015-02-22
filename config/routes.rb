@@ -16,6 +16,7 @@ Rails.application.routes.draw do
     resource :friendships
   end
   resources :posts
+  resources :conversations
 
   get "/profile" => "users#profile", as: :profile
 

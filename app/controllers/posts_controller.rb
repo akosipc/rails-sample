@@ -15,7 +15,7 @@ class PostsController < ApplicationController
     @post = current_user.posts.build(post_params)
 
     if @post.save
-      redirect_to authenticated_root_path
+      redirect_to authenticated_root_path, notice: "Post created"
     else
       render :new
     end
@@ -25,7 +25,7 @@ class PostsController < ApplicationController
     @post = current_user.posts.find(params[:id])
 
     if @post.update_attributes(post_params)
-      redirect_to authenticated_root_path
+      redirect_to authenticated_root_path, notice: "Post updated"
     else
       render :edit
     end
