@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   end
   resources :posts
   resources :conversations
+  resources :quests
 
   get "/profile" => "users#profile", as: :profile
 

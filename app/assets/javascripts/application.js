@@ -8,6 +8,8 @@
 //= require components/alerts
 //= require components/modals
 //= require history_native_html5
+//= require underscore.min
+//= require gmaps/google
 //= require_tree ./initializers
 //= require_tree .
 

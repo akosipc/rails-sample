@@ -16,6 +16,7 @@ gem "reformed", github: "akosipc/reformed"
 gem "chosen-rails"
 gem "carrierwave"
 gem "mini_magick"
+gem "gmaps4rails"
 
 gem "devise"
 gem "rails_admin"
