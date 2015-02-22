@@ -14,6 +14,8 @@ gem "cancan"
 gem "virtus"
 gem "reformed", github: "akosipc/reformed"
 gem "chosen-rails"
+gem "carrierwave"
+gem "mini_magick"
 
 gem "devise"
 gem "rails_admin"

@@ -13,6 +13,8 @@ class User < ActiveRecord::Base
   has_many :posts
   has_many :comments
 
+  mount_uploader :avatar, ImageUploader
+
   def full_name
     "#{first_name} #{last_name}"
   end
