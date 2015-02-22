@@ -13,9 +13,7 @@ Rails.application.routes.draw do
   end
 
   resources :users do
-    member do
-      get :friends
-    end
+    resource :friendships
   end
   resources :posts
 

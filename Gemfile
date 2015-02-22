@@ -17,6 +17,7 @@ gem "reformed", github: "akosipc/reformed"
 gem "devise"
 gem "rails_admin"
 gem "bootstrap-sass"
+gem "bootswatch-rails"
 gem "font-awesome-rails"
 gem "public_activity"
 gem "geocoder"
@@ -33,5 +34,6 @@ group :development do
   gem "coderay"
   gem "guard-livereload"
   gem "quiet_assets"
+  gem "letter_opener"
 end
 

@@ -1,6 +1,8 @@
 - flash.each do |name, msg|
   - if msg.is_a?(String)
-    %div{:class => "alert fade-in alert-dismissable alert-#{name.to_s == 'notice' ? 'success' : 'danger'}"}
+    %div{:class => "alert alert-dismissable alert-#{name.to_s == 'notice' ? 'success' : 'danger'}"}
       %button.close{"aria-hidden" => "true", "data-dismiss" => "alert", :type => "button"} &times;
       = content_tag :div, msg, :id => "flash_#{name}"
 
+:javascript
+  $(function(){ RigPirate.Alerts.fadeOut() })

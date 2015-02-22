@@ -1,0 +1,11 @@
+- if current_user.pending_invited.include? another_user
+  = link_to "Cancel", user_friendships_path(another_user), class: "btn btn-primary", method: :delete
+- elsif another_user.pending_invited.include? current_user
+  = link_to "Approve", user_friendships_path(another_user, params: { status: "approve" } ), class: "btn btn-primary", method: :put
+  = link_to "Block", user_friendships_path(another_user, params: { status: "block" } ), class: "btn btn-primary", method: :put
+- elsif current_user.friend_with? another_user
+  = link_to "Remove", user_friendships_path(another_user), class: "btn btn-primary", method: :delete
+- elsif current_user.blocked.include? another_user
+  = link_to "Unblock", user_friendships_path(another_user, params: { status: "unblock" } ), class: "btn btn-primary", method: :put
+- else
+  = link_to "Add", user_friendships_path(another_user), class: "btn btn-primary", method: :post

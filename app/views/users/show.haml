@@ -1,0 +1,9 @@
+.container
+  .row
+    .col-xs-3
+      - #Sidebar here
+      = @user.full_name
+      - unless owner?
+        = render "friendship", current_user: current_user, another_user: @user
+    .col-xs-9
+      - #aside here

@@ -7,6 +7,7 @@ class FriendshipsController < ApplicationController
   def create
     if current_user.invite @user
       set_activity(current_user, @user, "connection.request")
+      FriendshipMailer.requesting(current_user, @user).deliver
       redirect_to user_path(@user), notice: "Successfully invited a user"
     else
       redirect_to user_path(@user), alert: "Error was encountered"
@@ -15,6 +16,7 @@ class FriendshipsController < ApplicationController
 
   def update
     if params[:status] == "approve" && current_user.approve(@user)
+      FriendshipMailer.confirmed(current_user, @user).deliver
       set_activity(current_user, @user, "connection.approve")
       redirect_to user_path(@user), notice: "Successfully added this user to your network list"
     elsif params[:status] == "block" && current_user.block(@user)
