@@ -12,7 +12,13 @@ Rails.application.routes.draw do
     root to: "home#dashboard", as: :authenticated_root
   end
 
-  resources :users
+  resources :users do
+    member do
+      get :friends
+    end
+  end
   resources :posts
+
+  get "/profile" => "users#profile", as: :profile
 
 end
