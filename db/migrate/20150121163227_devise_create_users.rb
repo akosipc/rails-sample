@@ -5,7 +5,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
       t.string :first_name
-      t.string :last_naem
+      t.string :last_name
       t.string :username
 
       ## Recoverable

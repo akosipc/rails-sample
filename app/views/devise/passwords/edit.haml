@@ -1,0 +1,14 @@
+.container
+  .row
+    .col-xs-offset-2.col-xs-8
+      %h2 Forgot your password?
+      = reform_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put} ) do |f|
+        = devise_error_messages!
+
+        = f.hidden_field :reset_password_token
+        = f.input :password, type: "password", autofocus: true, autocomplete: "off"
+        = f.input :password_confirmation, type: "password", autocomplete: "off"
+        = f.action "Change my password", class: "btn btn-primary"
+
+        = render "devise/shared/links"
+
