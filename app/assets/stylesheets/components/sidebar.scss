@@ -2,4 +2,46 @@
   background: lighten($darkblue, 5%);
   height: 100%;
   position: fixed;
+  color: $white;
+
+  .profile, .navigation, .friendships {
+    margin: 10px 0px 20px 0px;
+  }
+
+  .profile {
+    padding-left: 40px;
+
+    img {
+      width: 75px;
+      height: 75px;
+      border-radius: 100%;
+    }
+
+    .name {
+      line-height: 20px;
+      padding: 15px 20px;
+      p { margin: 0px; }
+    }
+  }
+
+  .navigation {
+    margin-left: 15px;
+    ul {
+      li {
+        list-style: square;
+        a {
+          color: $white;
+
+          &:hover {
+            color: $green;
+            text-decoration: none;
+          }
+        }
+      }
+    }
+  }
+
+  .friendships {
+    padding-left: 50px;
+  }
 }

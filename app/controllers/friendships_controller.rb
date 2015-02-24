@@ -39,6 +39,11 @@ class FriendshipsController < ApplicationController
     end
   end
 
+  def show
+    @accepted_friendships = current_user.friends
+    @pending_friendships = current_user.pending_invited
+  end
+
 private
   def set_user
     @user = User.find(params[:user_id])
