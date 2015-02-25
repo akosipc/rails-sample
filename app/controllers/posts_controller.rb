@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  include ActivityManager
   before_action :authenticate_user!
 
   def new
@@ -15,6 +16,7 @@ class PostsController < ApplicationController
     @post = current_user.posts.build(post_params)
 
     if @post.save
+      set_activity(@post, current_user.friends)
       redirect_to authenticated_root_path, notice: "Post created"
     else
       render :new
@@ -25,6 +27,7 @@ class PostsController < ApplicationController
     @post = current_user.posts.find(params[:id])
 
     if @post.update_attributes(post_params)
+      set_activity(@post, current_user.friends)
       redirect_to authenticated_root_path, notice: "Post updated"
     else
       render :edit
@@ -32,6 +35,7 @@ class PostsController < ApplicationController
   end
 
   def destroy
+    set_activity(@post, current_user.friends)
     @post = current_user.posts.find(params[:id])
 
     redirect_to authenticated_root_path if @post.destroy

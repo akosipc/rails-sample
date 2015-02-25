@@ -2,3 +2,8 @@
   .col-lg-3.col-md-3.col-xs-3.sidebar
     = render "shared/sidebar"
   .col-lg-9.col-md-9.col-xs-9.central
+    .row
+      .col-lg-12.col-md-12.col-xs-12
+        - @activities.each do |activity|
+          = render "activity", activity: activity
+

@@ -1,4 +1,5 @@
 class QuestsController < ApplicationController
+  include ActivityManager
   before_action :authenticate_user!
 
   def index
@@ -13,6 +14,7 @@ class QuestsController < ApplicationController
     @quest = Quest.find(params[:id])
 
     if @quest.accept!(current_user)
+      set_activity(@quest, current_user.friends, "quest.accept")
       redirect_to quests_path, notice: "Quest Accepted!"
     else
       redirect_to quests_path, notice: "Quest Denied!"

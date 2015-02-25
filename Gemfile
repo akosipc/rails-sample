@@ -29,6 +29,8 @@ gem "acts_as_votable"
 gem "leaderboard"
 gem "historyjs-rails"
 gem "mailboxer", github: "div/mailboxer", branch: "rails42-foreigner"
+gem "verbs"
+gem "indefinite_article"
 
 group :development do
   gem "byebug"
