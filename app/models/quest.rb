@@ -12,4 +12,8 @@ class Quest < ActiveRecord::Base
 
   has_many :rewards
 
+  def accept!(user)
+    score = rewards.sum(:amount)
+    user.update_attributes(score: user.score + score)
+  end
 end
