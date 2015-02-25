@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   resources :posts
   resources :conversations
   resources :quests
+  resources :leaderboard
 
   get "/profile" => "users#profile", as: :profile
 

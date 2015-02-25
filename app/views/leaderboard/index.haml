@@ -1,0 +1,19 @@
+.row
+  .col-lg-3.col-md-3.col-xs-3.sidebar
+    = render "shared/sidebar"
+  .col-lg-9.col-md-9.col-xs-9.central
+    %table.table.table-condensed.table-striped.table-hover.leaderboard
+      %thead
+        %tr
+          %th Rank
+          %th Username
+          %th Profile
+          %th Score
+      %tbody
+        - @users.each_with_index do |user, index|
+          %tr
+            %td= index + 1
+            %td= user.username
+            %td= user.full_name
+            %td= user.score
+

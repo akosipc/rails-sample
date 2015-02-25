@@ -10,4 +10,6 @@ class Quest < ActiveRecord::Base
 
   validates :address, :title, :description, presence: true
 
+  has_many :rewards
+
 end
