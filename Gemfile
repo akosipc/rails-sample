@@ -43,3 +43,8 @@ group :development do
   gem "letter_opener"
 end
 
+group :production do
+  gem "unicorn"
+  gem "rails_12factor"
+end
+
