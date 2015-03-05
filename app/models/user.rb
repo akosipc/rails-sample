@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   include Amistad::FriendModel
 
-  acts_as_voter
+  acts_as_liker
   acts_as_messageable
 
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable

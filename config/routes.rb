@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   resources :conversations
   resources :quests
   resources :leaderboard
+  resource :like
 
   get "/profile" => "users#profile", as: :profile
 

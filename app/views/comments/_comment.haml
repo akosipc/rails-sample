@@ -10,4 +10,13 @@
       %p
         %small= time_ago_in_words(comment.created_at, include_seconds: true)
         = "&#183;".html_safe
-        %small= link_to "Like", "#"
+        %small
+          - if current_user.likes? comment
+            = link_to "Unlike", like_path(object: "comment", id: comment.id), method: :post
+          - else
+            = link_to "Like", like_path(object: "comment", id: comment.id), method: :post
+
+          - if comment.likers(User).any?
+            = "&#183;".html_safe
+            %i.fa.fa-thumbs-o-up
+              %span= comment.likers(User).count

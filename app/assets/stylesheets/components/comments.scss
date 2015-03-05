@@ -34,4 +34,15 @@
       font-weight: 300;
     }
   }
+
+  small {
+    i {
+      color: $darkblue;
+
+      span {
+        color: $green;
+        font-family: $font;
+      }
+    }
+  }
 }

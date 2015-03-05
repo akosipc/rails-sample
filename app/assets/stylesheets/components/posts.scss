@@ -17,8 +17,15 @@
 
 
     &.activities { 
-      a {
-        font-size: 11px;
+      a { font-size: 11px; }
+
+      i {
+        color: $darkblue;
+        span {
+          color: $green;
+          font-size: 11px;
+          font-family: $font;
+        } 
       }
     }
   }
