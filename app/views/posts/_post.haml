@@ -1,0 +1,21 @@
+.row.activity
+  .col-md-2.col-xs-2.col-lg-2.text-center
+    = render "users/avatar", user: post.user
+  .col-md-10.col-xs-10.col-lg-10
+    .post
+      %strong.details= link_to post.user.full_name
+      %hr
+      %p
+        = post.content
+        %p
+          %small.time
+            = "#{time_ago_in_words(post.created_at, include_seconds: true)} ago"
+        %p.activities
+          = link_to "Like", "#"
+          = "&#183;".html_safe
+          = link_to "Comment", "#"
+      .comments
+        - post.comments.order("created_at DESC").each do |comment|
+          = render "comments/comment", comment: comment
+        = render "comments/form", post: post
+

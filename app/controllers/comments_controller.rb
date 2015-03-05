@@ -1,4 +1,4 @@
-class CommentController < ApplicationController
+class CommentsController < ApplicationController
   include ActivityManager
   before_action :authenticate_user!
   before_action :set_post
@@ -12,11 +12,11 @@ class CommentController < ApplicationController
   end
 
   def create
-    @comment = @post.comments.build(comment_params)
+    @comment = @post.comments.build(comment_params.merge(user: current_user))
 
     if @comment.save
       set_activity(@post, current_user.friends, "comment.create")
-      redirect_to authenticated_root_path
+      redirect_to request.referrer, notice: "Successfully created a comment"
     else
       render :new
     end
@@ -25,9 +25,9 @@ class CommentController < ApplicationController
   def update
     @comment = @post.comments.find(params[:id])
 
-    if @comment.update_attributes(comment_params)
+    if @comment.update_attributes(comment_params.merge(user: current_user))
       set_activity(@post, current_user.friends, "comment.update")
-      redirect_to authenticated_root_path
+      redirect_to request.referrer, notice: "Successfully updated a comment"
     else
       render :edit
     end
@@ -37,7 +37,7 @@ class CommentController < ApplicationController
     set_activity(@post, current_user.friends, "comment.update")
     @comment = @post.comments.find(params[:id])
 
-    redirect_to request.referrer if @comment.destroy
+    redirect_to request.referrer, notice: "Successfully deleted a comment"
   end
 
   private

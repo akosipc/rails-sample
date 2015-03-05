@@ -1,0 +1,13 @@
+.comment 
+  .row
+    .col-lg-1.col-xs-1.col-md-1.text-center
+      = render "users/avatar", user: comment.user
+    .col-lg-11.col-xs-11.col-md-11
+      %strong
+        = comment.user.full_name
+        %span
+          = comment.content
+      %p
+        %small= time_ago_in_words(comment.created_at, include_seconds: true)
+        = "&#183;".html_safe
+        %small= link_to "Like", "#"

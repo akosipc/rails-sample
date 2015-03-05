@@ -1,0 +1,25 @@
+.post {
+  border: 1px solid $grey;
+  border-radius: 5px;
+  padding: 10px 15px;
+  background: $white;
+
+  hr { margin: 11px 0px; }
+  .details { font-size: 17px; }
+
+  p {
+    margin: auto;
+
+    small { 
+      color: darken($grey, 20%); 
+      font-size: 11px;
+    }
+
+
+    &.activities { 
+      a {
+        font-size: 11px;
+      }
+    }
+  }
+}

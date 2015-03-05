@@ -15,7 +15,9 @@ Rails.application.routes.draw do
   resources :users do
     resource :friendships
   end
-  resources :posts
+  resources :posts do
+    resource :comments
+  end
   resources :conversations
   resources :quests
   resources :leaderboard

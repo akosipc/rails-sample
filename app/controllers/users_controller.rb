@@ -15,11 +15,13 @@ class UsersController < ApplicationController
   end
 
   def show
+    @posts = @user.posts.order("created_at DESC")
     redirect_to profile_path if current_user == @user
   end
 
   def profile
     @user = current_user
+    @posts = @user.posts.order("created_at DESC")
     render :show
   end
 

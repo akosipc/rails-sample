@@ -8,8 +8,8 @@
 @import "bootswatch/flatly/bootswatch";
 @import "font-awesome";
 
-@import "overrides/bootstrap";
 @import "overrides/variables";
+@import "overrides/bootstrap";
 @import "overrides/chosen";
 
 @import "components/general";
@@ -19,3 +19,5 @@
 @import "components/map";
 @import "components/friendships";
 @import "components/activities";
+@import "components/posts";
+@import "components/comments";
