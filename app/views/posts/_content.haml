@@ -1,0 +1,38 @@
+.post
+  - if defined?(with_name)
+    %strong.details= link_to post.user.full_name
+    %hr
+  %p
+    .pull-right
+      - if owner_of?(post)
+        = link_to post, method: :delete, data: { confirm: "Are you sure?" } do
+          %i.fa.fa-trash-o
+    = post.content
+    %p
+      %small.time
+        = "#{time_ago_in_words(post.created_at, include_seconds: true)} ago"
+    %p.activities
+      - if current_user.likes? post
+        = link_to "Unlike", like_path(object: "post", id: post.id), method: :post
+      - else
+        = link_to "Like", like_path(object: "post", id: post.id), method: :post
+      = "&#183;".html_safe
+
+      = link_to "Comment", "#"
+
+      - if post.likers(User).any?
+        = "&#183;".html_safe
+        %i.fa.fa-thumbs-o-up
+          %span= post.likers(User).count
+
+      - if post.comments.any?
+        = "&#183;".html_safe
+        %i.fa.fa-comments-o
+          %span= post.comments.count
+
+  
+  .comments
+    - post.comments.order("created_at DESC").each do |comment|
+      = render "comments/comment", comment: comment
+    = render "comments/form", post: post
+

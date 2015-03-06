@@ -5,6 +5,7 @@
 //= require bootstrap-sprockets
 //= require bootstrap/alert
 //= require bootstrap/modal
+//= require bootstrap/tooltip
 //= require components/alerts
 //= require components/modals
 //= require history_native_html5

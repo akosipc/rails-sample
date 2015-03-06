@@ -17,8 +17,8 @@
         - if activity.trackable.class == User
           with you.
 
-      - if activity.trackable.class == Post
-        %p= activity.trackable.content.html_safe
+      - if activity.trackable.class == Post && keys[0] == "post"
+        = render "posts/content", post: activity.trackable
 
 
 
