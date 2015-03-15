@@ -1,12 +1,20 @@
 .alert {
-  position: absolute;
-  z-index: 9999;
-  top: 60px;
-  left: 25%;
-  width: 50%;
-  text-align: center;
+  &.notifications {
+    position: absolute;
+    z-index: 9999;
+    top: 70px;
+    left: 74%;
+    width: 25%;
+    text-align: center;
+  }
 }
 
 body {
   background: darken($white, 5%);
+}
+
+.table {
+  &.table-centered {
+    th, td { text-align: center; }
+  }
 }

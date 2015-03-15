@@ -1,0 +1,14 @@
+.panel.panel-primary
+  .panel-heading
+    = "Updating Quest details for #{@quest.title}"
+  = form_for [@quest, @mission] do |f|
+    .panel-body
+      = f.filepicker_field :filepicker_url, dragdrop: true, multiple: true, class: "filepicker"
+    .panel-footer
+      = f.submit "Update", class: "btn btn-primary"
+
+:javascript
+  $(function(){
+    RigPirate.Modals.close();
+  })
+

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150224170410) do
+ActiveRecord::Schema.define(version: 20150315150851) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -103,6 +103,15 @@ ActiveRecord::Schema.define(version: 20150224170410) do
   add_index "mailboxer_receipts", ["notification_id"], name: "index_mailboxer_receipts_on_notification_id", using: :btree
   add_index "mailboxer_receipts", ["receiver_id", "receiver_type"], name: "index_mailboxer_receipts_on_receiver_id_and_receiver_type", using: :btree
 
+  create_table "missions", force: :cascade do |t|
+    t.string   "status",         default: "Accepted"
+    t.integer  "user_id"
+    t.integer  "quest_id"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+    t.string   "filepicker_url"
+  end
+
   create_table "posts", force: :cascade do |t|
     t.text     "content"
     t.integer  "user_id"
@@ -118,27 +127,32 @@ ActiveRecord::Schema.define(version: 20150224170410) do
     t.float    "long"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.integer  "level"
+  end
+
+  create_table "quests_rewards", id: false, force: :cascade do |t|
+    t.integer "quest_id"
+    t.integer "reward_id"
   end
 
   create_table "rewards", force: :cascade do |t|
     t.string   "name"
     t.string   "description"
     t.integer  "amount"
-    t.integer  "quest_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",                            default: "", null: false
-    t.string   "encrypted_password",               default: "", null: false
+    t.string   "email",                            default: "",    null: false
+    t.string   "encrypted_password",               default: "",    null: false
     t.string   "first_name"
     t.string   "last_name"
     t.string   "username"
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",                    default: 0,  null: false
+    t.integer  "sign_in_count",                    default: 0,     null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.inet     "current_sign_in_ip"
@@ -147,6 +161,8 @@ ActiveRecord::Schema.define(version: 20150224170410) do
     t.datetime "updated_at"
     t.string   "avatar"
     t.integer  "score",                  limit: 8, default: 0
+    t.boolean  "admin",                            default: false
+    t.integer  "level",                            default: 1
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

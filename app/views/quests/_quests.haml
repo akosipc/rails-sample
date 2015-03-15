@@ -1,0 +1,21 @@
+- if quests.any?
+  %table.table.table-condensed.table-striped.table-hover.table-centered
+    %thead
+      %tr
+        %th Title
+        %th Short Description
+        %th Rewards
+        %th Actions
+    %tbody
+      - quests.each do |quest|
+        %tr
+          %td= quest.title
+          %td= truncate(quest.description, length: 50)
+          %td= quest.display_rewards
+          %td
+            = link_to quest_missions_path(quest), method: :post, data: { toggle: "tooltip", placement: "top" }, title: "Accept" do
+              %i.fa.fa-check-square
+- else
+  .alert.alert-info
+    %i.fa.fa-info-circle
+    There are no quests available 

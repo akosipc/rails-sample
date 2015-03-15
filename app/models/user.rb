@@ -12,6 +12,7 @@ class User < ActiveRecord::Base
 
   has_many :posts
   has_many :comments
+  has_many :missions
 
   mount_uploader :avatar, ImageUploader
 
@@ -23,6 +24,10 @@ class User < ActiveRecord::Base
     self.friends.map do |friend|
       [friend.full_name, friend.id]
     end
+  end
+
+  def mission_ids
+    missions.collect(&:quest_id)
   end
 
 end

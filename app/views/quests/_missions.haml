@@ -1,0 +1,32 @@
+- if missions.any?
+  %table.table.table-condensed.table-striped.table-hover.table-centered
+    %thead
+      %tr
+        %th Title
+        %th Short Description
+        %th Status
+        %th Rewards
+        %th Actions
+    %tbody
+      - missions.each do |mission|
+        %tr
+          - quest = mission.quest
+          %td= quest.title
+          %td= truncate(quest.description, length: 50)
+          %td= mission.status
+          %td= quest.display_rewards
+          %td
+            - if mission.status == "In Review"
+              = link_to quest_mission_path(quest, mission), data: { toggle: "modal", target: "#modal", placement: "top" }, role: "history-trigger", rel: "tooltip", title: "Show Images" do
+                %i.fa.fa-eye
+            - else
+              = link_to edit_quest_mission_path(quest, mission), data: { toggle: "tooltip", placement: "top"}, title: "Submit for Review"  do
+                %i.fa.fa-picture-o
+
+- else
+  .alert.alert-info
+    %i.fa.fa-info-circle
+    You currently have no accepted quests.
+
+
+

@@ -17,6 +17,7 @@ gem "chosen-rails"
 gem "carrierwave"
 gem "mini_magick"
 gem "gmaps4rails"
+gem "filepicker-rails"
 
 gem "devise"
 gem "rails_admin"

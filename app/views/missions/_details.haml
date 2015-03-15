@@ -1,0 +1,17 @@
+.modal-content
+  .modal-header
+    %button.close{ data: { dismiss: "modal" } }
+      %span= "&times;".html_safe
+    %h4.modal-title Quest Details
+  .modal-body.quest-details
+    - images = @mission.filepicker_url.split(",")
+
+    - images.each do |image|
+      .row
+        .col-lg-12.col-md-12.col-xs-12.text-center
+          = filepicker_image_tag image
+  .modal-footer
+    %button.btn.btn-default{ data: { dismiss: "modal" } } Close
+
+:javascript
+  $(function(){ RigPirate.Modals.close(); })

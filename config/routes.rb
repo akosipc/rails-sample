@@ -19,7 +19,9 @@ Rails.application.routes.draw do
     resource :comments
   end
   resources :conversations
-  resources :quests
+  resources :quests do
+    resources :missions
+  end
   resources :leaderboard
   resource :like
 

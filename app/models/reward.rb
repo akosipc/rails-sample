@@ -1,5 +1,5 @@
 class Reward < ActiveRecord::Base
-  belongs_to :quest
+  has_and_belongs_to_many :quests
 
   validates :name, :description, :amount, presence: true
 end
