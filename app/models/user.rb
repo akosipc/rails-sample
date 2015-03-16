@@ -30,4 +30,9 @@ class User < ActiveRecord::Base
     missions.collect(&:quest_id)
   end
 
+  def rewards
+    quest_ids = missions.where(status: "Completed").select(:quest_id)
+    Quest.where(id: quest_ids).collect(&:rewards).flatten
+  end
+
 end

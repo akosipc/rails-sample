@@ -20,10 +20,19 @@ Rails.application.routes.draw do
   end
   resources :conversations
   resources :quests do
-    resources :missions
+    resources :missions do
+      member do
+        put :accept
+      end
+    end
   end
   resources :leaderboard
+  resources :rewards
   resource :like
+
+  namespace :admin do
+    resources :missions
+  end
 
   get "/profile" => "users#profile", as: :profile
 

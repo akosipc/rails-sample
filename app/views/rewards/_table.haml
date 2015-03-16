@@ -1,0 +1,22 @@
+- if rewards.any?
+  %table.table.table-condensed.table-striped.table-hover.table-centered
+    %thead
+      %tr
+        %th Reward Name
+        %th Amount
+        %th Short Description
+        %th Status
+        %th Actions
+    %tbody
+      - rewards.each do |reward|
+        %tr
+          %td= reward.name
+          %td= reward.amount
+          %td= reward.description
+          %td= "Pending"
+          %td
+- else
+  .alert.alert-info
+    %i.fa.fa-info-circle
+    You don't have any rewards as of right now.
+

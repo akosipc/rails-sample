@@ -1,0 +1,19 @@
+%p
+  Hi,
+  = @user.full_name
+
+%p
+  Your quest
+  = @quest.title
+  has been tagged as completed!
+
+%p
+  You'll receive the following items:
+  %ul
+    - @rewards.each do |reward|
+      %li= reward.description
+
+%p
+  Regards,
+  RigPirate Admin!
+

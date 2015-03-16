@@ -3,7 +3,7 @@ class QuestsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @accepted_quests = current_user.missions
+    @accepted_quests = current_user.missions.current
     @available_quests = Quest.where("(level = ? or level <= ?) and id not in (?)", nil, current_user.level, current_user.mission_ids)
 
     @quests = Gmaps4rails.build_markers(Quest.all) do |quest, marker|
@@ -16,7 +16,7 @@ class QuestsController < ApplicationController
 private
   def infowindow(quest)
     "
-      <p> #{quest.title} </p>
+      <h3> #{quest.title} </h3>
       <p> #{quest.description} </p>
     "
   end

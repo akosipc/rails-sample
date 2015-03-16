@@ -14,6 +14,7 @@
     - if owner?
       %li= link_to "View Profile", profile_path
       %li= link_to "Edit Profile", edit_user_path(current_user), role: "history-trigger", data: { toggle: "modal", target: "#modal" }
+      %li= link_to "Rewards", rewards_path
       %li= link_to "Quests", quests_path
       %li= link_to "Messages", conversations_path
       %li= link_to "Friends", user_friendships_path(current_user)

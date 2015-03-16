@@ -1,0 +1,13 @@
+.row
+  .col-lg-3.col-md-3.col-xs-3.sidebar
+    = render "shared/sidebar"
+  .col-lg-9.col-md-9.col-xs-9.central
+    %h3 Completed Missions
+    = render "admin/missions/table", missions: @completed_missions
+    %hr
+    %h3 In Review Missions
+    = render "admin/missions/table", missions: @in_review_missions
+    %hr
+    %h3 Completed Missions
+    = render "admin/missions/table", missions: @accepted_missions
+
