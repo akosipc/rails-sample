@@ -7,10 +7,7 @@
   = reform_for @message, url: conversations_path do |f|
     = f.hidden_field :conversation_id, value: params[:conversation_id]
     .modal-body
-      .form-group
-        = f.label :recipient_ids, "Recipients"
-        = f.select :recipient_ids, options_for_select(current_user.sanitized_friends, params[:user_ids]), {}, { class: "form-control", placeholder: "Friends", role: "tagsinput", prompt: "Select User", multiple: true }
-
+      = f.input :recipient_ids, as: :select, choices: options_for_select(current_user.sanitized_friends, params[:user_ids]), html: {class: "form-control", placeholder: "Friends", role: "tagsinput", prompt: "Select User", multiple: true}
       = f.input :body, as: :text, class: "form-control", role: "autoexpand"
 
     .modal-footer
