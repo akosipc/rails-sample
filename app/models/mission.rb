@@ -11,8 +11,7 @@ class Mission < ActiveRecord::Base
   end
 
   def accept!
-    self.update_attributes(status: "Completed")
-    RewardMailer.notify(self).deliver!
+    RewardProcessor.new(self).process! 
   end
 
 private

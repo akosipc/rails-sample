@@ -23,7 +23,7 @@ module RigPirate
       g.model_specs           false
     end
 
-    config.autoload_paths += ["app/models/form_objects"]
+    config.autoload_paths += ["app/models/form_objects", "app/services"]
 
     config.filepicker_rails.api_key = Rails.application.secrets.filepicker_api_key
 

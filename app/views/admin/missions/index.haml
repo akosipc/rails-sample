@@ -5,9 +5,13 @@
     %h3 Completed Missions
     = render "admin/missions/table", missions: @completed_missions
     %hr
-    %h3 In Review Missions
+    %h3 Submitted Missions
     = render "admin/missions/table", missions: @in_review_missions
     %hr
-    %h3 Completed Missions
+    %h3 Accepted Missions
     = render "admin/missions/table", missions: @accepted_missions
 
+:javascript
+  $(function(){
+    RigPirate.Tooltip.init()
+  })
