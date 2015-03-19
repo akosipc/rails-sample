@@ -25,12 +25,19 @@
 
 :javascript
   $(function(){
-    handler = Gmaps.build("Google");
-    handler.buildMap({ provider: { Zoom: 15 }, internal: {id: 'map-canvas'}}, function(){
-      markers = handler.addMarkers(#{raw @quests.to_json})
-      handler.bounds.extendWith(markers);
-      handler.map.centerOn(markers[0]);
-    })
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        function(position) {
+          handler = Gmaps.build("Google");
+          handler.buildMap({ provider: { Zoom: 15, center: new google.maps.LatLng(position.coords.latitude, position.coords.longitude)}, internal: {id: 'map-canvas'}}, function(){
+            markers = handler.addMarkers(#{raw @quests.to_json})
+            handler.bounds.extendWith(markers);
+          })
+        }
+      ) 
+    } else {
+
+    }
 
     RigPirate.Tooltip.init()
   })
