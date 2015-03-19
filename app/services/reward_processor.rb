@@ -2,11 +2,12 @@ class RewardProcessorException < StandardError; end
 
 class RewardProcessor
 
-  attr_accessor :mission
+  attr_accessor :mission, :user, :options
 
   def initialize(mission, options = {})
     @mission = mission
     @user = mission.user
+    @options = options
   end
 
   def process!
