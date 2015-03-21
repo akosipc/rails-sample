@@ -1,3 +1,5 @@
+require "reward_processor" 
+
 class Mission < ActiveRecord::Base
 
   belongs_to :quest

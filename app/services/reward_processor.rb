@@ -1,3 +1,5 @@
+require "level_processor"
+
 class RewardProcessorException < StandardError; end
 
 class RewardProcessor
@@ -14,6 +16,7 @@ class RewardProcessor
     update_quest!
     notify!
     reward!
+    level_up!
   end
 
 private
@@ -28,6 +31,10 @@ private
   def reward!
     current_score = @user.score + @mission.rewards.experience.sum(:amount)
     @user.update_attributes(score: current_score)
+  end
+
+  def level_up!
+    LevelProcessor.new(@user).process!
   end
 
 end
