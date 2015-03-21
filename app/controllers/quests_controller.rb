@@ -4,7 +4,11 @@ class QuestsController < ApplicationController
 
   def index
     @accepted_quests = current_user.missions.current
-    @available_quests = Quest.where("(level = ? or level <= ?) and id not in (?)", nil, current_user.level, current_user.mission_ids)
+    if current_user.mission_ids.present?
+      @available_quests = Quest.where("level <= ?", current_user.level)
+    else
+      @available_quests = Quest.where("level <= (?) AND id NOT IN (?)", current_user.level, current_user.mission_ids)
+    end
 
     @quests = Gmaps4rails.build_markers(Quest.all) do |quest, marker|
       marker.lat quest.lat
