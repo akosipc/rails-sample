@@ -5,9 +5,9 @@ class QuestsController < ApplicationController
   def index
     @accepted_quests = current_user.missions.current
     if current_user.mission_ids.present?
-      @available_quests = Quest.where("level <= ?", current_user.level)
-    else
       @available_quests = Quest.where("level <= (?) AND id NOT IN (?)", current_user.level, current_user.mission_ids)
+    else
+      @available_quests = Quest.where("level <= ?", current_user.level)
     end
 
     @quests = Gmaps4rails.build_markers(Quest.all) do |quest, marker|
