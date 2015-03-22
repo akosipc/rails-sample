@@ -17,11 +17,15 @@
         .tab-pane.active.quests#map{ role: "tabpanel" }
           #map-canvas
         .tab-pane.quests#list{ role: "tabpanel" }
-          %h3 Accepted Quests
-          = render "quests/missions", missions: @accepted_quests
-          %hr
-          %h3 Available Quests
-          = render "quests/quests", quests: @available_quests
+          .panel.panel-primary
+            .panel-heading Accepted Quests
+            .panel-body 
+              = render "quests/missions", missions: @accepted_quests
+
+          .panel.panel-primary
+            .panel-heading Available Quests
+            .panel-body
+              = render "quests/quests", quests: @available_quests
 
 :javascript
   $(function(){
@@ -38,6 +42,5 @@
     } else {
 
     }
-
     RigPirate.Tooltip.init()
   })

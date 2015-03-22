@@ -4,8 +4,17 @@
   .col-lg-9.col-md-9.col-xs-9.central
     .row
       .col-lg-12.col-md-12.col-xs-12
-        - @posts.each do |post|
-          = render "posts/post", post: post
+        .panel.panel-primary
+          .panel-heading
+            Your Posts
+          .panel-body
+            - if @posts.present?
+              - @posts.each do |post|
+                = render "posts/post", post: post
+            - else
+              .alert.alert-info
+                %i.fa.fa-info-circle
+                Nothing much is going on.
         
       
 

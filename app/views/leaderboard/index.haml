@@ -2,20 +2,23 @@
   .col-lg-3.col-md-3.col-xs-3.sidebar
     = render "shared/sidebar"
   .col-lg-9.col-md-9.col-xs-9.central
-    %table.table.table-condensed.table-striped.table-hover.table-centered
-      %thead
-        %tr
-          %th Rank
-          %th Username
-          %th Full Name
-          %th Level
-          %th Score
-      %tbody
-        - @users.each_with_index do |user, index|
-          %tr
-            %td= index + 1
-            %td= user.username
-            %td= user.full_name
-            %td= user.level
-            %td= user.score
+    .panel.panel-primary
+      .panel-heading Leaderboard
+      .panel-body
+        %table.table.table-condensed.table-striped.table-hover.table-centered.table-bordered
+          %thead
+            %tr
+              %th Rank
+              %th Username
+              %th Full Name
+              %th Level
+              %th Score
+          %tbody
+            - @users.each_with_index do |user, index|
+              %tr
+                %td= index + 1
+                %td= user.username
+                %td= user.full_name
+                %td= user.level
+                %td= user.score
 

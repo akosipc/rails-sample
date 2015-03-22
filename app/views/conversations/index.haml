@@ -2,34 +2,43 @@
   .col-lg-3.col-md-3.col-xs-3.sidebar
     = render "shared/sidebar"
   .col-lg-9.col-md-9.col-xs-9.central
-    .pull-right
-      = link_to "New Message", new_conversation_path, role: "history-trigger", data: { toggle: "modal", target: "#modal" }, class: "btn btn-default"
+    .panel.panel-primary
+      .panel-heading 
+        Messages 
+        .pull-right
+          = link_to "New Message", new_conversation_path, role: "history-trigger", data: { toggle: "modal", target: "#modal" }, class: "btn btn-default btn-xs"
 
-    %table.table.table-condensed.table-striped.table-hover.table-centered
-      %thead
-        %tr
-          %th Sent By
-          %th Last Message
-          %th Sent On
-          %th Actions
-      %tbody
-        - @conversations.each do |conversation|
-          %tr
-            - last_message = conversation.last_message
-            %td
-              = link_to conversation_path(conversation) do
-                = last_message.sender.full_name
-            %td= last_message.body
-            %td= time_ago_in_words(last_message.created_at, include_seconds: true)
-            %td
-              = link_to conversation_path(conversation, { condition: "unread" } ), method: :put, data: { toggle: "tooltip", placement: "top" }, title: "Mark as Unread" do
-                %i.fa.fa-eye
-              %span= "|"
-              = link_to conversation_path(conversation, { condition: "read" } ), method: :put, data: { toggle: "tooltip", placement: "top" }, title: "Mark as Read" do
-                %i.fa.fa-eye-slash
-              %span= "|"
-              = link_to conversation_path(conversation), method: :delete, data: { toggle: "tooltip", placement: "top" }, title: "Delete Conversation" do
-                %i.fa.fa-trash-o
+      .panel-body
+        - if @conversations.present?
+          %table.table.table-condensed.table-striped.table-hover.table-centered.table-bordered
+            %thead
+              %tr
+                %th Sent By
+                %th Last Message
+                %th Sent On
+                %th Actions
+            %tbody
+              - @conversations.each do |conversation|
+                %tr
+                  - last_message = conversation.last_message
+                  %td
+                    = link_to conversation_path(conversation) do
+                      = last_message.sender.full_name
+                  %td= last_message.body
+                  %td= time_ago_in_words(last_message.created_at, include_seconds: true)
+                  %td
+                    = link_to conversation_path(conversation, { condition: "unread" } ), method: :put, data: { toggle: "tooltip", placement: "top" }, title: "Mark as Unread" do
+                      %i.fa.fa-eye
+                    %span= "|"
+                    = link_to conversation_path(conversation, { condition: "read" } ), method: :put, data: { toggle: "tooltip", placement: "top" }, title: "Mark as Read" do
+                      %i.fa.fa-eye-slash
+                    %span= "|"
+                    = link_to conversation_path(conversation), method: :delete, data: { toggle: "tooltip", placement: "top" }, title: "Delete Conversation" do
+                      %i.fa.fa-trash-o
+        - else
+          .alert.alert-info
+            %i.fa.fa-info-circle
+            You currently have no messages.
 
 :javascript
   $(function(){

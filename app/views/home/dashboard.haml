@@ -4,6 +4,16 @@
   .col-lg-9.col-md-9.col-xs-9.central
     .row
       .col-lg-12.col-md-12.col-xs-12
-        - @activities.each do |activity|
-          = render "activity", activity: activity
+        .panel.panel-primary
+          .panel-heading
+            Activity Feed
+          .panel-body
+            - if @activities.present?
+              - @activities.each do |activity|
+                = render "activity", activity: activity
+            - else
+              .alert.alert-info
+                %i.fa.fa-info-circle
+                Nothing much is going on.
+
 

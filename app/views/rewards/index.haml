@@ -2,5 +2,13 @@
   .col-lg-3.col-md-3.col-xs-3.sidebar
     = render "shared/sidebar"
   .col-lg-9.col-md-9.col-xs-9.central
-    %h3 Rewards
-    = render "table", rewards: @rewards
+    .panel.panel-primary
+      .panel-heading Rewards
+      .panel-body
+        - if @rewards.present?
+          = render "table", rewards: @rewards
+        - else
+          .alert.alert-info
+            %i.fa.fa-info-circle
+            You currently have no rewards.
+

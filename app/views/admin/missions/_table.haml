@@ -1,5 +1,5 @@
 - if missions.any?
-  %table.table.table-condensed.table-striped.table-hover.table-centered
+  %table.table.table-condensed.table-striped.table-hover.table-centered.table-bordered
     %thead
       %tr
         %th Title
@@ -26,7 +26,7 @@
                 = link_to accept_quest_mission_path(quest, mission), data: { toggle: "tooltip", placement: "top" }, title: "Accept Quest", method: :put do
                   %i.fa.fa-check-square
 - else
-  .alert.alert-info
+  .alert.alert-success
     %i.fa.fa-info-circle
     We don't have any quests listed under this category.
 
