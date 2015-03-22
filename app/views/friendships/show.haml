@@ -4,17 +4,51 @@
   .col-lg-9.col-md-9.col-xs-9.central
     .row.friendships
       .col-lg-12.col-xs-12.col-md-12
-        %h3 Accepted Friends
-        - @accepted_friendships.each do |friend|
-          = render "friend", friend: friend
-        .clearfix
-        %hr
+        .panel.panel-primary
+          .panel-heading Search
+          .panel-body
+            = form_tag search_user_friendships_path (current_user) do 
+              .form-group
+                = text_field_tag "query", "", class: "form-control", placeholder: "Search by e-mail or username"
+              .form-group
+                .pull-right
+                  = submit_tag "Search", class: "btn btn-primary"
+
+      - if defined?(@searched_friends)
+        .col-lg-12.col-xs-12.col-md-12
+          .panel.panel-primary
+            .panel-heading Search Results
+            .panel-body
+              - if @searched_friends.present?
+                - @searched_friends.each do |friend|
+                  = render "friend", friend: friend
+              - else
+                .alert.alert-info
+                  %i.fa.fa-info-circle
+                  There were no results found.
 
       .col-lg-12.col-xs-12.col-md-12
-        %h3 Pending Invites
-        - @pending_friendships.each do |friend|
-          = render "friend", friend: friend
-        .clearfix
-        %hr
+        .panel.panel-primary
+          .panel-heading Accepted Friends
+          .panel-body
+            - if @accepted_friendships.present?
+              - @accepted_friendships.each do |friend|
+                = render "friend", friend: friend
+            - else
+              .alert.alert-info
+                %i.fa.fa-info-circle
+                You currently have no accepted friend requests.
 
 
+
+      .col-lg-12.col-xs-12.col-md-12
+        .panel.panel-primary
+          .panel-heading Pending Invites
+          .panel-body
+            - if @pending_friendships.present?
+              - @pending_friendships.each do |friend|
+                = render "friend", friend: friend
+            - else
+              .alert.alert-info
+                %i.fa.fa-info-circle
+                You currently have no pending friend requests.

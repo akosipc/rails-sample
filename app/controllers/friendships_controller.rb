@@ -44,6 +44,15 @@ class FriendshipsController < ApplicationController
     @pending_friendships = current_user.pending_invited
   end
 
+  def search
+    @accepted_friendships = current_user.friends
+    @pending_friendships = current_user.pending_invited
+
+    @searched_friends = User.where("email ILIKE (?) or username ILIKE (?)", "%#{params[:query]}%", "%#{params[:query]}%")
+
+    render :show
+  end
+
 private
   def set_user
     @user = User.find(params[:user_id])

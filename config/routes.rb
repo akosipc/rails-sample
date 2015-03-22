@@ -13,7 +13,11 @@ Rails.application.routes.draw do
   end
 
   resources :users do
-    resource :friendships
+    resource :friendships do
+      collection do
+        post :search
+      end
+    end
   end
   resources :posts do
     resource :comments
