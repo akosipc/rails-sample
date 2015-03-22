@@ -25,7 +25,7 @@ class MissionsController < ApplicationController
   def update
     @mission = Mission.find(params[:id])
 
-    if @mission.update_attributes(mission_images.merge(status: "In Review"))
+    if @mission.update_attributes(mission_images.merge(status: "In Review", submitted_at: DateTime.now))
       redirect_to quests_path, notice: "Quest is submitted for review!"
     else
       redirect_to quests_path, alert: "An error was encountered. Please contact our Support team."

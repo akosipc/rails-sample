@@ -9,9 +9,12 @@
     - images.each do |image|
       .row
         .col-lg-12.col-md-12.col-xs-12.text-center
-          = filepicker_image_tag image
+          = image_tag image, onerror: "RigPirate.Missions.catchImageErrors(this)"
   .modal-footer
     %button.btn.btn-default{ data: { dismiss: "modal" } } Close
 
 :javascript
-  $(function(){ RigPirate.Modals.close(); })
+  $(function(){ 
+    RigPirate.Modals.close(); 
+    RigPirate.Missions.catchImageErrors();
+  })

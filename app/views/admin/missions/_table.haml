@@ -6,6 +6,7 @@
         %th User
         %th Short Description
         %th Status
+        %th Submitted At
         %th Rewards
         %th Actions
     %tbody
@@ -16,6 +17,10 @@
           %td= mission.user.full_name
           %td= truncate(quest.description, length: 50)
           %td= mission.status
+          - if mission.submitted_at.present?
+            %td= mission.try(:submitted_at).strftime("%B %d, %Y, %H:%M:%S %p")
+          - else
+            %td
           %td= quest.display_rewards
           %td
             - if mission.status == "In Review" || mission.status == "Completed"
