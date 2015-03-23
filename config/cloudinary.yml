@@ -1,0 +1,13 @@
+production:
+  cloud_name: ho1mxgjv7
+  api_key: "528378515459849"
+  api_secret: E4vtHoFmXNH6TCrR2jyucCDevBs
+  enhance_image_tag: true
+  static_image_support: true
+
+development:
+  cloud_name: generic-cloudinary
+  api_key: "484828788832287"
+  api_secret: u0GUEBFemDeP0OcmDvChnF8KevM
+  enhance_image_tag: true
+  static_image_support: true
