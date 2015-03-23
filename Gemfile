@@ -18,6 +18,7 @@ gem "carrierwave"
 gem "mini_magick"
 gem "gmaps4rails"
 gem "filepicker-rails"
+gem "cloudinary"
 
 gem "devise"
 gem "rails_admin"
