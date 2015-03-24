@@ -1,14 +1,25 @@
 %section.profile
   .row
     .col-lg-12.col-xs-12.col-md-12
-      .col-lg-4.col-md-4.col-xs-4.text-center
+      .col-lg-4.col-md-12.col-xs-12.text-center
         = render "users/avatar", user: @user ||= current_user
-      .col-lg-8.col-md-8.col-xs-8.name
+      .col-lg-8.col-md-12.col-xs-12.name.text-center
         - if owner?
           %p Welcome,
         - else
           %p Viewing,
         %p= @user.full_name
+        %p
+          %small
+            Level 
+            = @user.level
+          %span= "|"
+          %small
+            ( Exp
+            = @user.score
+            )
+
+
 %section.navigation
   %ul
     - if owner?
