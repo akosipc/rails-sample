@@ -6,15 +6,13 @@
         %th Amount
         %th Short Description
         %th Status
-        %th Actions
     %tbody
       - rewards.each do |reward|
         %tr
           %td= reward.name
           %td= reward.amount
-          %td= reward.description
-          %td= "Pending"
-          %td
+          %td= reward.category
+          %td= reward.status
 - else
   .alert.alert-info
     %i.fa.fa-info-circle

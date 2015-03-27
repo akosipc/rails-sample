@@ -13,6 +13,7 @@ class Quest < ActiveRecord::Base
 
   has_and_belongs_to_many :rewards
   has_many :missions
+  has_many :bounties
 
   def accept!(user)
     score = rewards.sum(:amount)
