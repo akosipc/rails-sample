@@ -10,7 +10,7 @@ class QuestsController < ApplicationController
       @available_quests = Quest.where("level <= ?", current_user.level)
     end
 
-    @quests = Gmaps4rails.build_markers(Quest.all) do |quest, marker|
+    @quests = Gmaps4rails.build_markers(@available_quests) do |quest, marker|
       marker.lat quest.lat
       marker.lng quest.long
       marker.infowindow infowindow(quest)
