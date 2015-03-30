@@ -6,7 +6,7 @@ protected
   end
 
   def after_sign_up_path_for(resource)
-    new_question_group_answer_groups_path(Rapidfire::Question.first)
+    "/surveys/question_groups/#{Rapidfire::QuestionGroup.last}/answer_groups/new"
   end
 end
 
