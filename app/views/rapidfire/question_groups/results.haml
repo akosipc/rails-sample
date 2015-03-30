@@ -1,0 +1,30 @@
+.row
+  .col-lg-3.col-md-3.col-xs-3.sidebar
+    = render "shared/sidebar"
+  .col-lg-9.col-md-9.col-xs-9.central
+    .panel.panel-primary.admim
+      .panel-heading
+        = "Results for #{@question_group.name}"
+      .panel-body
+        - if @question_group_results.any?
+          %table.table.table-condensed.table-striped.table-hover.table-centered.table-bordered
+            %thead
+              %tr
+                %th Question
+                %th Answers
+            %tbody
+              - @question_group_results.each do |result|
+                %tr
+                  %td= result.question.question_text
+                  %td
+                    %ul.no-margin
+                      - if result.results.is_a?(Array)
+                        - result.results.each do |answer|
+                          %li= answer
+                      - elsif result.results.is_a?(Hash)
+                        - result.results.each do |option, count|
+                          %li= "#{option} - #{count}"
+        - else
+          .alert.alert-success
+            %i.fa.fa-info-circle
+            We currently have no answers to the survey.

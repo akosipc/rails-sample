@@ -1,0 +1,15 @@
+.row
+  .col-lg-3.col-md-3.col-xs-3.sidebar
+    = render "shared/sidebar"
+  .col-lg-9.col-md-9.col-xs-9.central
+    .panel.panel-primary.admim
+      .panel-heading 
+        Please answer these questions
+      = form_for [@question_group, @answer_group_builder] do |f|
+        .panel-body
+          - @answer_group_builder.answers.each do |answer|
+            = f.fields_for("#{answer.question.id}", answer) do |answer_form| 
+              = render_answer_form_helper(answer, answer_form) 
+        .panel-footer
+          = f.submit "Save", class: "btn btn-primary"
+
