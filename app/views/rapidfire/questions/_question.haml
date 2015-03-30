@@ -1,0 +1,20 @@
+- if collection.any?
+  %table.table.table-condensed.table-striped.table-hover.table-centered.table-bordered
+    %thead
+      %tr
+        %th Question
+        %th Actions
+    %tbody
+      - collection.each do |question|
+        %tr
+          %th= question.question_text
+          %th
+            = link_to [:edit, question.question_group, question], data: { toggle: "tooltip", placement: "top" }, title: "Edit Question" do
+              %i.fa.fa-pencil
+            = link_to [question.question_group, question], method: :delete, data: { toggle: "tooltip", placement: "top", confirm: "Are you sure?" }, title: "Delete Question" do
+              %i.fa.fa-trash-o
+
+- else
+  .alert.alert-success
+    %i.fa.fa-info-circle
+    We don't have any questions for this survey

@@ -1,0 +1,15 @@
+.row
+  .col-lg-3.col-md-3.col-xs-3.sidebar
+    = render "shared/sidebar"
+  .col-lg-9.col-md-9.col-xs-9.central
+    .panel.panel-primary.admim
+      .panel-heading 
+        = "Questions for #{@question_group.name}"
+        - if admin?
+          .pull-right
+            = link_to "New Question", new_question_group_question_path(@question_group), class: "btn btn-default btn-xs"
+      .panel-body
+        = render "question", collection: @questions
+
+:javascript
+  $(function(){ RigPirate.Tooltip.init() })
