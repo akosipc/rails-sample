@@ -1,0 +1,8 @@
+.panel.panel-primary
+  .panel-heading
+    = @question_group.new_record? ? "New Survey" : "Edit Survey" 
+  = reform_for @question_group do |f|
+    .panel-body
+      = f.input :name, class: "form-control"
+    .panel-footer
+      = f.submit "Submit", class: "btn btn-primary"

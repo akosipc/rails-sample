@@ -2,7 +2,8 @@ Rails.application.routes.draw do
 
   devise_for :users, controllers: {registrations: "overrides/registrations"}
 
-  mount RailsAdmin::Engine => '/captainslounge', as: 'rails_admin'
+  mount RailsAdmin::Engine => "/captainslounge", as: "rails_admin"
+  mount Rapidfire::Engine => "/rapidfire"
 
   unauthenticated do
     root to: "home#index"

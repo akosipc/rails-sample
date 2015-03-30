@@ -1,0 +1,15 @@
+.row
+  .col-lg-3.col-md-3.col-xs-3.sidebar
+    = render "shared/sidebar"
+  .col-lg-9.col-md-9.col-xs-9.central
+    .panel.panel-primary.admim
+      .panel-heading 
+        Surveys
+        - if admin?
+          .pull-right
+            = link_to "New Survey", new_question_group_path, class: "btn btn-default btn-xs"
+      .panel-body
+        = render "question_group", collection: @question_groups
+
+:javascript
+  $(function(){ RigPirate.Tooltip.init() })

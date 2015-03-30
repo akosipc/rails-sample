@@ -19,6 +19,7 @@ gem "mini_magick"
 gem "gmaps4rails"
 gem "filepicker-rails"
 gem "cloudinary"
+gem "rapidfire", github: "sandrew/rapidfire", branch: "feature/inline-main_app-routes-for-layout"
 
 gem "devise"
 gem "rails_admin"

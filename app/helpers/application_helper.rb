@@ -1,5 +1,9 @@
 module ApplicationHelper
 
+  def admin?
+    current_user.admin?
+  end
+
   def owner?
     current_user == @user
   end

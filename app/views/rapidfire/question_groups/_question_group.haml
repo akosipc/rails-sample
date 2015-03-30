@@ -1,0 +1,32 @@
+- if collection.any?
+  %table.table.table-condensed.table-striped.table-hover.table-centered.table-bordered
+    %thead
+      %tr
+        %th Survey Title
+        %th Number of Questions
+        %th Number of Respondents
+        %th Actions
+    %tbody
+      - collection.each do |survey|
+        %tr
+          %th= survey.name
+          %th -
+          %th -
+          %th
+            = link_to new_question_group_answer_group_path(survey), data: { toggle: "tooltip", placement: "top" }, title: "Answer Survey" do
+              %i.fa.fa-send
+            - if admin?
+              %span= "|"
+              = link_to question_group_questions_path(survey), data: { toggle: "tooltip", placement: "top" }, title: "Questions" do
+                %i.fa.fa-question
+              %span= "|"
+              = link_to [:results, survey], data: { toggle: "tooltip", placement: "top" }, title: "Results" do
+                %i.fa.fa-bar-chart-o
+              %span= "|"
+              = link_to [survey], method: :delete, data: { toggle: "tooltip", placement: "top", confirm: "Are you sure?" }, title: "Delete" do
+                %i.fa.fa-trash-o
+
+- else
+  .alert.alert-success
+    %i.fa.fa-info-circle
+    We don't have any surveys right now
