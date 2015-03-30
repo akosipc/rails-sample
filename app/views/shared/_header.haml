@@ -9,6 +9,7 @@
       %ul.nav.navbar-nav.navbar-right
         - if user_signed_in?
           - if current_user.admin?
+            %li= link_to "Survey", rapidfire_path
             %li= link_to "Admin",  admin_missions_path
           %li= link_to "Leaderboard", leaderboard_index_path
           %li= link_to "New Post", new_post_path, role: "history-trigger", data: { toggle: "modal" , target: "#modal" }

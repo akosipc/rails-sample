@@ -1,6 +1,13 @@
+- if params[:action] == "new"
+  - url = question_group_questions_path(@question_group)
+- else
+  - url = question_group_question_path(@question_group, params[:id])
+
+
+
 .panel.panel-primary
   .panel-heading Question Form
-  = reform_for [@question_group, @question] do |f|
+  = reform_for [@question_group, @question], url: url do |f|
     .panel-body
       = f.input :type, as: :select, choices: ::Rapidfire::QuestionForm::QUESTION_TYPES, html: { class: "form-control" } 
       = f.input :question_text, class: "form-control", as: :string

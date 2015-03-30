@@ -4,14 +4,12 @@
       %tr
         %th Survey Title
         %th Number of Questions
-        %th Number of Respondents
         %th Actions
     %tbody
       - collection.each do |survey|
         %tr
           %th= survey.name
-          %th -
-          %th -
+          %th= survey.questions.count
           %th
             = link_to new_question_group_answer_group_path(survey), data: { toggle: "tooltip", placement: "top" }, title: "Answer Survey" do
               %i.fa.fa-send

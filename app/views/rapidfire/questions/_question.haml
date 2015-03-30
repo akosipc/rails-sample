@@ -11,6 +11,7 @@
           %th
             = link_to [:edit, question.question_group, question], data: { toggle: "tooltip", placement: "top" }, title: "Edit Question" do
               %i.fa.fa-pencil
+            %span= "|"
             = link_to [question.question_group, question], method: :delete, data: { toggle: "tooltip", placement: "top", confirm: "Are you sure?" }, title: "Delete Question" do
               %i.fa.fa-trash-o
 

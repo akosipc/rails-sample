@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: {registrations: "overrides/registrations"}
 
   mount RailsAdmin::Engine => "/captainslounge", as: "rails_admin"
-  mount Rapidfire::Engine => "/rapidfire"
+  mount Rapidfire::Engine => "/surveys"
 
   unauthenticated do
     root to: "home#index"
