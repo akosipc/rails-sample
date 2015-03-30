@@ -50,5 +50,6 @@ end
 group :production do
   gem "unicorn"
   gem "rails_12factor"
+  gem "raygun4ruby"
 end
 
