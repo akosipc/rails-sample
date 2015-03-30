@@ -14,4 +14,8 @@ private
     raise CanCan::AccessDenied.new("You are not authorized to view this") unless current_user.admin?
   end
 
+  def after_sign_up_path_for(resource)
+    new_question_group_answer_groups_path(Rapidfire::Question.first)
+  end
+
 end
