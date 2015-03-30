@@ -25,6 +25,10 @@ Rails.application.routes.draw do
   end
   resources :conversations
   resources :quests do
+    collection do
+      get :display
+    end
+
     resources :missions do
       member do
         put :accept

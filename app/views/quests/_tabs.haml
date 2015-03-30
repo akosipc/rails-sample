@@ -1,0 +1,39 @@
+.tabpanel
+  %ul.nav.nav-tabs{ role: "tablist" }
+    %li.active{ role: "presentation" }
+      %a{ href: "#map", aria: { controls: "map" }, role: "tab", data: { toggle: "tab" } } Quest Map
+    %li{ role: "presentation" }
+      %a{ href: "#list", aria: { controls: "list" }, role: "tab", data: { toggle: "tab" } } Quest List
+
+
+  .tab-content
+    .tab-pane.active.quests#map{ role: "tabpanel" }
+      #map-canvas
+    .tab-pane.quests#list{ role: "tabpanel" }
+      .panel.panel-primary
+        .panel-heading Accepted Quests
+        .panel-body 
+          = render "quests/missions", missions: @accepted_quests
+
+      .panel.panel-primary
+        .panel-heading Available Quests
+        .panel-body
+          = render "quests/quests", quests: @available_quests
+
+:javascript
+  $(function(){
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        function(position) {
+          handler = Gmaps.build("Google");
+          handler.buildMap({ provider: { Zoom: 15, center: new google.maps.LatLng(position.coords.latitude, position.coords.longitude)}, internal: {id: 'map-canvas'}}, function(){
+            markers = handler.addMarkers(#{raw @quests.to_json})
+            handler.bounds.extendWith(markers);
+          })
+        }
+      ) 
+    } else {
+
+    }
+    RigPirate.Tooltip.init()
+  })
