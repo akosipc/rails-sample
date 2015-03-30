@@ -1,0 +1,16 @@
+.panel.panel-primary
+  .panel-heading Question Form
+  = reform_for [@question_group, @question] do |f|
+    .panel-body
+      = f.input :type, as: :select, choices: ::Rapidfire::QuestionForm::QUESTION_TYPES, html: { class: "form-control" } 
+      = f.input :question_text, class: "form-control", as: :string
+      = f.input :answer_options, class: "form-control", as: :text, role: "autoexpand"
+
+      %hr
+      = f.input :answer_minimum_length, class: "form-control", as: :string
+      = f.input :answer_maximum_length, class: "form-control", as: :string
+      = f.input :answer_greater_than_or_equal_to, class: "form-control", as: :string
+      = f.input :answer_less_than_or_equal_to, class: "form-control", as: :string
+      = f.input :answer_presence, as: :boolean
+    .panel-footer
+      = f.submit "Submit", class: "btn btn-primary"
