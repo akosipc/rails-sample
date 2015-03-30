@@ -13,6 +13,9 @@
           %td= reward.amount
           %td= reward.category
           %td= reward.status
+
+  .text-center
+    = paginate @rewards
 - else
   .alert.alert-info
     %i.fa.fa-info-circle

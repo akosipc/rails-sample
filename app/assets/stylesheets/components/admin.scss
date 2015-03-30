@@ -1,0 +1,18 @@
+.subnav {
+  background: lighten($darkblue, 5%);
+
+  a {
+    &.active {
+      background: lighten($darkblue, 20%);
+    }
+  }
+}
+
+.panel {
+  &.admin {
+    border-color: lighten($darkblue, 5%);
+    .panel-heading {
+      background: lighten($darkblue, 5%);
+    }
+  }
+}

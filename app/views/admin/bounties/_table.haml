@@ -1,0 +1,24 @@
+- if bounties.any?
+  %table.table.table-condensed.table-striped.table-hover.table-centered.table-bordered
+    %thead
+      %tr
+        %th User
+        %th Title
+        %th Amount
+        %th Category
+        %th Actions
+    %tbody
+      - bounties.each do |bounty|
+        %tr
+          %td= bounty.user.full_name
+          %td= bounty.name
+          %td= bounty.amount
+          %td= bounty.category
+          %td
+            = link_to admin_bounty_path(bounty), data: { toggle: "tooltip", placement: "top" }, title: "Send Reward", method: :put do
+              %i.fa.fa-check-square
+
+- else
+  .alert.alert-success
+    %i.fa.fa-info-circle
+    We don't have any pending rewards right now.

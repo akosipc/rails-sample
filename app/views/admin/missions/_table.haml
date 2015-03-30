@@ -30,6 +30,11 @@
                 %span= "|"
                 = link_to accept_quest_mission_path(quest, mission), data: { toggle: "tooltip", placement: "top" }, title: "Accept Quest", method: :put do
                   %i.fa.fa-check-square
+
+  - if defined?(@missions)
+    .text-center
+      = paginate missions
+
 - else
   .alert.alert-success
     %i.fa.fa-info-circle

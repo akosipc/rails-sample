@@ -2,18 +2,19 @@
   .col-lg-3.col-md-3.col-xs-3.sidebar
     = render "shared/sidebar"
   .col-lg-9.col-md-9.col-xs-9.central
-    .panel.panel-info
-      .panel-heading Completed Missions
+    = render "shared/admin/subnav"
+    .panel.panel-primary.admin
+      .panel-heading Recent Completed Quests
       .panel-body
         = render "admin/missions/table", missions: @completed_missions
 
-    .panel.panel-info
-      .panel-heading Submitted Missions
+    .panel.panel-primary.admin
+      .panel-heading Recent Submitted Quests
       .panel-body
         = render "admin/missions/table", missions: @in_review_missions
 
-    .panel.panel-info
-      .panel-heading Accepted Missions
+    .panel.panel-primary.admin
+      .panel-heading Recent Accepted Quests
       .panel-body
         = render "admin/missions/table", missions: @accepted_missions
 

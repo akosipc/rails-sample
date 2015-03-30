@@ -35,7 +35,14 @@ Rails.application.routes.draw do
   resource :like
 
   namespace :admin do
-    resources :missions
+    resources :missions do
+      collection do
+        get :completed
+        get :submitted
+        get :accepted
+      end
+    end
+    resources :bounties
   end
 
   get "/profile" => "users#profile", as: :profile

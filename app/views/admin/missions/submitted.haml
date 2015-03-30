@@ -1,0 +1,14 @@
+.row
+  .col-lg-3.col-md-3.col-xs-3.sidebar
+    = render "shared/sidebar"
+  .col-lg-9.col-md-9.col-xs-9.central
+    = render "shared/admin/subnav"
+    .panel.panel-primary.admin
+      .panel-heading Submitted Quests
+      .panel-body
+        = render "admin/missions/table", missions: @missions
+
+:javascript
+  $(function(){
+    RigPirate.Tooltip.init()
+  })

@@ -1,0 +1,9 @@
+.navbar.navbar-default.subnav
+  .container
+    %ul.nav.navbar-nav
+      %li= link_to "Recent Quests", admin_missions_path, class: active?(:missions, :index)
+      %li= link_to "Completed Quests", completed_admin_missions_path, class: active?(:completed)
+      %li= link_to "Submitted Quests", submitted_admin_missions_path, class: active?(:submitted)
+      %li= link_to "Accepted Quests", accepted_admin_missions_path, class: active?(:accepted)
+      %li= link_to "Pending Rewards", admin_bounties_path, class: active?(:bounties, :index)
+    

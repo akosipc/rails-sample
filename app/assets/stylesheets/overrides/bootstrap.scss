@@ -24,3 +24,20 @@ body {
     background: #F3F3F3;
   }
 }
+
+.pagination {
+  li {
+    a {
+      background: lighten($darkblue, 5%);
+      &:hover { background: lighten($darkblue, 20%); }
+    }
+
+    &.active {
+      a { 
+        background: lighten($darkblue, 20%); 
+
+        &:hover { background: lighten($darkblue, 20%); }
+      }
+    }
+  }
+}

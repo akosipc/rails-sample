@@ -2,7 +2,7 @@ class ConversationsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @conversations = current_user.mailbox.inbox
+    @conversations = current_user.mailbox.inbox.page(params[:page]).per(75)
   end
 
   def new

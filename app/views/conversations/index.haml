@@ -35,6 +35,9 @@
                     %span= "|"
                     = link_to conversation_path(conversation), method: :delete, data: { toggle: "tooltip", placement: "top" }, title: "Delete Conversation" do
                       %i.fa.fa-trash-o
+
+          .text-center
+            = paginate @conversations
         - else
           .alert.alert-info
             %i.fa.fa-info-circle
