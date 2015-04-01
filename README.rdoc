@@ -1,28 +1,80 @@
-== README
+== Rig Pirate
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Check it live at [http://http://mysterious-inlet-1324.herokuapp.com/]
 
-Things you may want to cover:
+===== Version
 
-* Ruby version
+  Ruby 2.1.4
+  Rails 4.2.0
+  PostgreSQL 9.4
+  Bootstrap 3
+  Redis Server
 
-* System dependencies
+===== System dependencies
 
-* Configuration
+  amistad
+  bootstrap-sass
+  bootswatch-rails
+  byebug
+  cancan
+  carrierwave
+  chosen-rails
+  cloudinary
+  coderay
+  coffee-rails (~> 4.1.0)
+  devise
+  filepicker-rails
+  font-awesome-rails
+  geocoder
+  gmaps4rails
+  guard (~> 2.1.1)
+  guard-livereload
+  historyjs-rails
+  html2haml
+  indefinite_article
+  ionicons-rails
+  jquery-rails
+  leaderboard
+  letter_opener
+  mailboxer!
+  mini_magick
+  pg
+  public_activity
+  quiet_assets
+  rails (= 4.2.0)
+  rails_12factor
+  rails_admin
+  rapidfire!
+  raygun4ruby
+  reformed!
+  sass-rails (~> 5.0)
+  socialization
+  spring
+  thin
+  uglifier (>= 1.3.0)
+  unicorn
+  verbs
+  virtus
+  web-console (~> 2.0)
 
-* Database creation
+===== Installation
 
-* Database initialization
+  $ git clone git@github.com:sanchez900/rigpirateprivate.git
+  $ cd rigpirateprivate
 
-* How to run the test suite
+===== Setup
 
-* Services (job queues, cache servers, search engines, etc.)
+  $ bundle install
 
-* Deployment instructions
+===== Configuration
 
-* ...
+  Copy `database.yml.sample` to `database.yml` and `secrets.yml.sample` to `secrets.yml`
 
+===== Starting the application
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+  Create and migrate the database
+  $ rake db:create db:migrate db:test:prepare db:seed --trace
+
+  Start the server
+  $ rails server
+
