@@ -20,6 +20,8 @@ gem "gmaps4rails"
 gem "filepicker-rails"
 gem "cloudinary"
 gem "rapidfire", github: "sandrew/rapidfire", branch: "feature/inline-main_app-routes-for-layout"
+gem "raygun4ruby"
+gem "ionicons-rails"
 
 gem "devise"
 gem "rails_admin"
@@ -50,6 +52,5 @@ end
 group :production do
   gem "unicorn"
   gem "rails_12factor"
-  gem "raygun4ruby"
 end
 

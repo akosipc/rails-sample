@@ -1,0 +1,13 @@
+.jumbotron {
+  color: $white;
+  padding: 100px 0px;
+
+  &.patterned {
+    background: asset-url("pattern.png");
+  }
+
+  &.smaller {
+    padding: 48px 0px;
+  }
+  
+}

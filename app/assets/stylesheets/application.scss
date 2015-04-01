@@ -7,6 +7,7 @@
 @import "bootstrap";
 @import "bootswatch/flatly/bootswatch";
 @import "font-awesome";
+@import "ionicons";
 
 @import "overrides/variables";
 @import "overrides/bootstrap";
@@ -23,3 +24,6 @@
 @import "components/comments";
 @import "components/quests";
 @import "components/admin";
+@import "components/jumbotron";
+@import "components/section";
+@import "components/footer";
