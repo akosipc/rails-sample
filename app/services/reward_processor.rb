@@ -1,4 +1,5 @@
 require "level_processor"
+
 class RewardProcessorException < StandardError; end
 
 class RewardProcessor
@@ -17,6 +18,11 @@ class RewardProcessor
     update_score!
     reward!
     level_up!
+
+    true
+  rescue Exception => e
+    puts e
+    false
   end
 
 private
@@ -30,7 +36,7 @@ private
   end
 
   def notify!
-    RewardMailer.notify(@mission).deliver!
+    RewardMailer.notify(@mission).deliver_now!
   end
 
   def reward!

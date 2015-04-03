@@ -13,11 +13,17 @@
           %small
             Level 
             = @user.level
-          %span= "|"
+        %p
           %small
             ( Exp
             = @user.score
             )
+        %p
+          %small
+            ( Gold 
+            = @user.total_gold
+            )
+
 
 
 %section.navigation

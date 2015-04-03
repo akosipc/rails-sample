@@ -36,4 +36,8 @@ class User < ActiveRecord::Base
     Quest.where(id: quest_ids).collect(&:rewards).flatten
   end
 
+  def total_gold
+    bounties.gold.collect(&:amount_in_numbers).sum
+  end
+
 end
