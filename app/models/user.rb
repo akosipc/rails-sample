@@ -14,6 +14,7 @@ class User < ActiveRecord::Base
   has_many :comments
   has_many :missions
   has_many :bounties
+  has_many :answers, class_name: "Rapidfire::AnswerGroup"
 
   mount_uploader :avatar, ImageUploader
 
