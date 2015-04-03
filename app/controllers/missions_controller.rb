@@ -42,6 +42,26 @@ class MissionsController < ApplicationController
     end
   end
 
+  def cancel
+    @mission = Mission.find(params[:id])
+
+    if @mission.cancel!
+      redirect_to quests_path, notice: "Quest is now cancelled"
+    else
+      redirect_to quests_path, alert: "An error was encountered. Please contact our Support team."
+    end
+  end
+
+  def reject
+    @mission = Mission.find(params[:id])
+
+    if @mission.reject!
+      redirect_to admin_missions_path, notice: "Quest was rejected."
+    else
+      redirect_to admin_missions_path, alert: "An error was encountered. Please contact our Support team."
+    end
+  end
+
 private
 
   def set_quest

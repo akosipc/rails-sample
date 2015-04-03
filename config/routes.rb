@@ -32,6 +32,8 @@ Rails.application.routes.draw do
     resources :missions do
       member do
         put :accept
+        delete :cancel
+        delete :reject
       end
     end
   end

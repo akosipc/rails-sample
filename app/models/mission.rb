@@ -9,11 +9,19 @@ class Mission < ActiveRecord::Base
   before_create :check_current_missions
 
   def self.current
-    where("status IN (?)", ["Accepted", "In Review"])
+    where("status IN (?)", ["Accepted", "In Review", "Rejected"])
   end
 
   def accept!
     RewardProcessor.new(self).process! 
+  end
+
+  def reject!
+    self.update_attributes(status: "Rejected")
+  end
+
+  def cancel!
+    self.destroy
   end
 
 private

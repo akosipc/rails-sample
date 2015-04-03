@@ -30,6 +30,9 @@
                 %span= "|"
                 = link_to accept_quest_mission_path(quest, mission), data: { toggle: "tooltip", placement: "top" }, title: "Accept Quest", method: :put do
                   %i.fa.fa-check-square
+                %span= "|"
+                = link_to reject_quest_mission_path(quest, mission), data: { toggle: "tooltip", placement: "top" }, title: "Reject Quest", method: :delete do
+                  %i.fa.fa-remove
 
   - if defined?(@missions)
     .text-center
