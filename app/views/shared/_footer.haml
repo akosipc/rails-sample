@@ -1,5 +1,12 @@
--#%footer
-  -#%p.pull-right
-    -#%a{:href => "#"} Back to top
-  -#%p
-    -#-#\© 2014 Mammoth, Inc. · #{link_to "Privacy", home_privacy_path}  · #{link_to "terms", home_terms_path}
+%footer
+  .container
+    %ul.nav.navbar-nav.footer-nav
+      %li
+        %small= link_to "Privacy Policy", privacy_path
+      %li
+        %small= link_to "About Us", about_path
+      %li
+        %small= link_to "Contact Us", contact_path
+    .pull-right
+      %small &copy; 2015 All Rights Reserved.
+    

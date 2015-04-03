@@ -51,5 +51,9 @@ Rails.application.routes.draw do
   end
 
   get "/profile" => "users#profile", as: :profile
+  get "/privacy" => "home#privacy", as: :privacy
+  get "/about" => "home#about", as: :about
+  get "/contact" => "home#contact", as: :contact
+
 
 end

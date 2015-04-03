@@ -7,4 +7,17 @@ class HomeController < ApplicationController
   def dashboard
     @activities = PublicActivity::Activity.where(recipient: current_user).order("created_at DESC")
   end
+
+  def privacy
+
+  end
+
+  def about
+
+  end
+
+  def contact
+
+  end
+
 end

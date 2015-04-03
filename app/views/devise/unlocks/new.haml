@@ -1,0 +1,12 @@
+.container
+  .row
+    .col-xs-offset-2.col-xs-8
+      %h2 Forgot your password?
+      = reform_for(resource, as: resource_name, url: unlock_path(resource_name), html: { method: :post} ) do |f|
+        = devise_error_messages!
+
+        = f.input :email, type: "email", autofocus: true, class: "form-control"
+        = f.action "Resend unlock instructions", class: "btn btn-primary"
+
+        = render "devise/shared/links"
+

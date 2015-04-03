@@ -1,0 +1,28 @@
+.jumbotron.patterned.smaller
+  .text-center
+    %h1 Contact Us
+
+%section
+  .container
+    .row
+      .col-xs-offset-2.col-xs-8
+        %form{action: "//formspree.io/adrianpetersonco@gmail.com", method: "POST", role: "contact-form"}
+          %input{  name: "_subject", type: "hidden", value: "RigPirate Inquiry" }
+          .form-group
+            %label{ for: "name" } Name
+            %input.form-control{ placeholder: 'Name', name: "name", required: true, id: "name" }
+          .form-group
+            %label{ for: "reply_to" } E-mail
+            %input.form-control{ placeholder: 'Email', name: "_replyto", type: "email", required: true, id: "reply_to" }
+          .form-group
+            %label{ for: "message" } Message
+            %textarea.form-control{ placeholder: 'Message', name: "message", required: true, role: "autoexpand", id: "message" }
+          .form-group
+            .row
+              .col-xs-offset-3.col-xs-6.text-center
+                %button.btn.btn-primary{type: "submit"} Send
+
+:javascript 
+  $(function(){
+    RigPirate.ContactForm.init();
+  })

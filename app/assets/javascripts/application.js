@@ -10,6 +10,8 @@
 //= require components/alerts
 //= require components/modals
 //= require components/missions
+//= require components/contact-form
+//= require components/messages
 //= require history_native_html5
 //= require underscore.min
 //= require gmaps/google

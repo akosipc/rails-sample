@@ -21,14 +21,3 @@
 
 <%= render "devise/shared/links" %>
 
-.container
-  .row
-    .col-xs-offset-2.col-xs-8
-      %h2 Forgot your password?
-      = reform_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post} ) do |f|
-
-        = f.input :email, type: "email", autofocus: true, class: "form-control"
-        = f.action "Send me reset password instructions", class: "btn btn-primary"
-
-        = render "devise/shared/links"
-

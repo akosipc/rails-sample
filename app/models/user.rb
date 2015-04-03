@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   acts_as_liker
   acts_as_messageable
 
-  devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable
+  devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable, :lockable, :confirmable
 
   validates :first_name, :last_name, :username, presence: true
   validates :username, uniqueness: true
