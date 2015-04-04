@@ -24,7 +24,7 @@ class LevelProcessor
      1200000 
   ]
 
-  attr_accessor :user, :options
+  attr_accessor :user, :options, :level
 
   def initialize(user, options = {})
     @user = user
@@ -32,12 +32,29 @@ class LevelProcessor
   end
 
   def process!
-    if level = check_level!
-      @user.update_attributes(level: level + 2)
-    end
+    @level = check_level!
+    level_up!
+    reward_achievement!
   end
 
 private
+  def level_up!
+    @user.update_attributes(level: @level + 2) if @level.present?
+  end
+
+  def reward_achievement!
+    if @level.present? 
+
+      badge = Badge.where(based_on: "Level", based_at: (@level + 2)).first
+
+      if badge.present?
+        Achievement.create(
+          badge: badge,
+          user: @user
+        )
+      end
+    end
+  end
 
   def check_level!
     return_me = nil

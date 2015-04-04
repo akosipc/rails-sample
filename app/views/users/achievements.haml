@@ -1,0 +1,14 @@
+.row
+  .col-lg-3.col-md-3.col-xs-3.sidebar
+    = render "shared/sidebar"
+  .col-lg-9.col-md-9.col-xs-9.central
+    .panel.panel-primary
+      .panel-heading Achievements
+      .panel-body
+        - if @achievements.present?
+          = render "table", achievements: @achievements
+        - else
+          .alert.alert-info
+            %i.fa.fa-info-circle
+            You currently have no achievements.
+

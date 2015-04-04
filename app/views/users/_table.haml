@@ -1,0 +1,13 @@
+%table.table.table-condensed.table-striped.table-hover.table-centered.table-bordered
+  %thead
+    %tr
+      %th Achievement Name
+      %th Achievement On
+      %th Short Description
+  %tbody
+    - achievements.each do |achievement|
+      %tr
+        %td= achievement.badge.name
+        %td= achievement.created_at.strftime("%B %d, %Y, %H:%M:%S %p")
+        %td= achievement.badge.description
+

@@ -14,6 +14,9 @@ Rails.application.routes.draw do
   end
 
   resources :users do
+    member do
+      get :achievements
+    end
     resource :friendships do
       collection do
         post :search
