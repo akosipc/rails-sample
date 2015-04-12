@@ -26,6 +26,9 @@ class UsersController < ApplicationController
   end
 
   def achievements
+    @quests_completed = @user.missions.finished.where(updated_at: month_range)
+    @exp_earned = @user.bounties.experience.where(created_at: month_range).collect(&:amount_in_numbers).sum
+    @gold_earned = @user.bounties.gold.where(created_at: month_range).collect(&:amount_in_numbers).sum
     @achievements = @user.achievements.order("created_at DESC")
   end
 
@@ -36,6 +39,10 @@ private
 
   def user_params
     params.require(:user).permit(:first_name, :last_name, :username, :avatar)
+  end
+
+  def month_range
+    Date.today.at_beginning_of_month..Date.today.end_of_month
   end
 
 end

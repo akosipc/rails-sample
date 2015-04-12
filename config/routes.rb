@@ -40,6 +40,7 @@ Rails.application.routes.draw do
       end
     end
   end
+  resources :bounties
   resources :leaderboard
   resources :rewards
   resource :like

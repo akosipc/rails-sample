@@ -4,15 +4,18 @@
       %tr
         %th Reward Name
         %th Amount
-        %th Short Description
         %th Status
+        %th Actions
     %tbody
       - rewards.each do |reward|
         %tr
           %td= reward.name
           %td= reward.amount
-          %td= reward.category
           %td= reward.status
+          %td
+            - unless reward.status == "Requested"
+              = link_to bounty_path(reward), data: { toggle: "tooltip", placement: "top" }, title: "Claim Reward", method: :put do
+                %i.fa.fa-check-square
 
   .text-center
     = paginate @rewards
