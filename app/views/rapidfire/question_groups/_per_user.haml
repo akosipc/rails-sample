@@ -1,0 +1,22 @@
+.panel.panel-primary.admim
+  .panel-heading
+    = "Results Per User"
+  .panel-body
+    - if Rapidfire::AnswerGroup.all.any?
+      - Rapidfire::AnswerGroup.all.each do |answer_group|
+        %p.text-center= "Answers of #{answer_group.user.full_name}"
+        %table.table.table-condensed.table-striped.table-hover.table-centered.table-bordered
+          %thead
+            %tr
+              %th Question
+              %th Answers
+          %tbody
+            - answer_group.answers.each do |answer|
+              %tr
+                %td= answer.question.question_text
+                %td= answer.answer_text
+    - else
+      .alert.alert-success
+        %i.fa.fa-info-circle
+        We currently have no answers to the survey.
+
