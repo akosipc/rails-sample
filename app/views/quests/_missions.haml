@@ -3,8 +3,10 @@
     %thead
       %tr
         %th Title
-        %th Short Description
+        %th Description
         %th Status
+        %th Gold
+        %th Experience
         %th Rewards
         %th Actions
     %tbody
@@ -12,9 +14,11 @@
         %tr
           - quest = mission.quest
           %td= quest.title
-          %td= truncate(quest.description, length: 50)
+          %td.description= quest.description
           %td= mission.status
-          %td= quest.display_rewards
+          %td= quest.gold
+          %td= quest.experience
+          %td= quest.others
           %td
             - if mission.status == "In Review"
               = link_to quest_mission_path(quest, mission), data: { toggle: "modal", target: "#modal", placement: "top" }, role: "history-trigger", rel: "tooltip", title: "Show Images" do

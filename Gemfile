@@ -22,6 +22,7 @@ gem "cloudinary"
 gem "rapidfire", github: "sandrew/rapidfire", branch: "feature/inline-main_app-routes-for-layout"
 gem "raygun4ruby"
 gem "ionicons-rails"
+gem "activerecord_any_of"
 
 gem "devise"
 gem "rails_admin"

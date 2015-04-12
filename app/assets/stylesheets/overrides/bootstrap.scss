@@ -14,8 +14,21 @@ body {
 }
 
 .table {
+  font-size: 13px;
   &.table-centered {
     th, td { text-align: center; }
+
+    td {
+      &.description {
+        width: 60%;
+        text-align: left;
+        font-size: 13px;
+      }
+
+      &.smaller {
+        width: 40%;
+      }
+    }
   }
 }
 

@@ -4,7 +4,7 @@
       %tr
         %th Title
         %th User
-        %th Short Description
+        %th Description
         %th Status
         %th Submitted At
         %th Rewards
@@ -15,7 +15,7 @@
           - quest = mission.quest
           %td= quest.title
           %td= mission.user.full_name
-          %td= truncate(quest.description, length: 50)
+          %td.description.smaller= quest.description
           %td= mission.status
           - if mission.submitted_at.present?
             %td= mission.try(:submitted_at).strftime("%B %d, %Y, %H:%M:%S %p")

@@ -15,7 +15,11 @@
         = link_to keys[0].with_indefinite_article, activity.trackable
 
         - if activity.trackable.class == User
-          with you.
+          - if current_user == activity.trackable
+            with you.
+          - else
+            with 
+            = activity.trackable.full_name
 
       - if activity.trackable.class == Post && keys[0] == "post"
         = render "posts/content", post: activity.trackable

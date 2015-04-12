@@ -9,7 +9,7 @@ class Admin::MissionsController < ApplicationController
   end
 
   def completed
-    @missions = Mission.where(status: "Completed").order("created_at DESC").page(params[:page]).per(2)
+    @missions = Mission.where(status: "Completed").order("created_at DESC").page(params[:page]).per(25)
   end
 
   def submitted

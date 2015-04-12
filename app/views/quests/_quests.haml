@@ -3,15 +3,19 @@
     %thead
       %tr
         %th Title
-        %th Short Description
+        %th Description
+        %th Gold
+        %th Experience
         %th Rewards
         %th Actions
     %tbody
       - quests.each do |quest|
         %tr
           %td= quest.title
-          %td= truncate(quest.description, length: 50)
-          %td= quest.display_rewards
+          %td.description= quest.description
+          %td= quest.gold
+          %td= quest.experience
+          %td= quest.others
           %td
             = link_to quest_missions_path(quest), method: :post, data: { toggle: "tooltip", placement: "top" }, title: "Accept" do
               %i.fa.fa-check-square

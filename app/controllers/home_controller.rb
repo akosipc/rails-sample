@@ -5,7 +5,7 @@ class HomeController < ApplicationController
   end
 
   def dashboard
-    @activities = PublicActivity::Activity.where(recipient: current_user).where.not(key: "comment.create").order("created_at DESC")
+    @activities = PublicActivity::Activity.where.any_of(recipient: current_user, owner: current_user).where.not(key: "comment.create").order("created_at DESC")
   end
 
   def privacy

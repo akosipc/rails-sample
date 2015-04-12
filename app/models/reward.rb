@@ -4,6 +4,8 @@ class Reward < ActiveRecord::Base
   validates :name, :description, :amount, :category, presence: true
   
   scope :experience, -> { where(category: "Experience" ) }
+  scope :gold, -> { where(category: "Gold" ) }
+  scope :others, -> { where(category: "Others" ) }
 
   def experience?
     category == "Experience"

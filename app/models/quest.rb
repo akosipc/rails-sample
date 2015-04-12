@@ -21,6 +21,18 @@ class Quest < ActiveRecord::Base
   end
 
   def display_rewards
-    rewards.any? ? rewards.collect(&:description).to_sentence : "No rewards"
+    rewards.any? ? rewards.collect(&:description).to_sentence : "n/a"
+  end
+
+  def gold
+    rewards.gold.any? ? rewards.gold.collect(&:description).to_sentence : "n/a"
+  end
+
+  def experience
+    rewards.experience.any? ? rewards.experience.collect(&:description).to_sentence : "n/a"
+  end
+
+  def others
+    rewards.others.any? ? rewards.others.collect(&:description).to_sentence : "n/a"
   end
 end
