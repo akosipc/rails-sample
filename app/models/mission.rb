@@ -8,6 +8,8 @@ class Mission < ActiveRecord::Base
 
   before_create :check_current_missions
 
+  scope :finished, -> { where(status: "Completed") }
+
   def self.current
     where("status IN (?)", ["Accepted", "In Review", "Rejected"])
   end

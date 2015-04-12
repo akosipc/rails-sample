@@ -3,18 +3,31 @@
     %li.active{ role: "presentation" }
       %a{ href: "#map", aria: { controls: "map" }, role: "tab", data: { toggle: "tab" } } Quest Map
     %li{ role: "presentation" }
-      %a{ href: "#list", aria: { controls: "list" }, role: "tab", data: { toggle: "tab" } } Quest List
+      %a{ href: "#completed", aria: { controls: "list" }, role: "tab", data: { toggle: "tab" } } Completed Quests
+    %li{ role: "presentation" }
+      %a{ href: "#accepted", aria: { controls: "list" }, role: "tab", data: { toggle: "tab" } } Accepted Quests
+    %li{ role: "presentation" }
+      %a{ href: "#available", aria: { controls: "list" }, role: "tab", data: { toggle: "tab" } } Available Quests
+
 
 
   .tab-content
     .tab-pane.active.quests#map{ role: "tabpanel" }
       #map-canvas
-    .tab-pane.quests#list{ role: "tabpanel" }
+
+    .tab-pane.quests#completed{ role: "tabpanel" }
+      .panel.panel-primary
+        .panel-heading Completed Quests
+        .panel-body 
+          = render "quests/missions", missions: @completed_quests
+
+    .tab-pane.quests#accepted{ role: "tabpanel" }
       .panel.panel-primary
         .panel-heading Accepted Quests
         .panel-body 
           = render "quests/missions", missions: @accepted_quests
 
+    .tab-pane.quests#available{ role: "tabpanel" }
       .panel.panel-primary
         .panel-heading Available Quests
         .panel-body

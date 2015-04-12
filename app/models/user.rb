@@ -30,7 +30,7 @@ class User < ActiveRecord::Base
   end
 
   def mission_ids
-    missions.collect(&:quest_id)
+    missions.finished.collect(&:quest_id)
   end
 
   def rewards
