@@ -3,7 +3,7 @@ class Admin::BountiesController < ApplicationController
   before_action :authenticate_admin!
 
   def index
-    @bounties = Bounty.where(status: "Pending")
+    @bounties = Bounty.others.where(status: "Requested")
   end
 
   def update

@@ -41,7 +41,6 @@ private
       <p> #{quest.description} </p>
       <hr/>
       <ul class='no-margin'>#{rewards(quest)}</ul>
-      <hr/>
       <div class='text-center'>
         #{view_quest(quest)}
       </div>
