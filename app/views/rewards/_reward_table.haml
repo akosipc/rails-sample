@@ -1,0 +1,15 @@
+%table.table.table-condensed.table-striped.table-hover.table-centered.table-bordered
+  %thead
+    %tr
+      %th Reward Name
+      %th Amount
+      %th Actions
+  %tbody
+    - rewards.each do |reward|
+      %tr
+        %td= reward.name
+        %td= reward.purchaseable_for
+        %td
+          = link_to reward_path(reward), data: { toggle: "tooltip", placement: "top" }, title: "Buy Reward", method: :put do
+            %i.fa.fa-check-square
+

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150404020558) do
+ActiveRecord::Schema.define(version: 20150413155242) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -253,9 +253,11 @@ ActiveRecord::Schema.define(version: 20150404020558) do
     t.string   "name"
     t.string   "description"
     t.integer  "amount"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
     t.string   "category"
+    t.boolean  "purchaseable",     default: false
+    t.integer  "purchaseable_for"
   end
 
   create_table "sashes", force: :cascade do |t|
@@ -334,6 +336,7 @@ ActiveRecord::Schema.define(version: 20150404020558) do
     t.string   "unlock_token"
     t.datetime "locked_at"
     t.integer  "sash_id"
+    t.integer  "gold_spent",                       default: 0
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree

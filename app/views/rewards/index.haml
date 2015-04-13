@@ -3,7 +3,17 @@
     = render "shared/sidebar"
   .col-lg-9.col-md-9.col-xs-9.central
     .panel.panel-primary
-      .panel-heading Rewards
+      .panel-heading Purchaseable Rewards
+      .panel-body
+        - if @purchaseable_rewards.present?
+          = render "reward_table", rewards: @purchaseable_rewards
+        - else
+          .alert.alert-info
+            %i.fa.fa-info-circle
+            There are no purchaseable rewards
+
+    .panel.panel-primary
+      .panel-heading Claimable Rewards
       .panel-body
         - if @rewards.present?
           = render "table", rewards: @rewards
@@ -12,3 +22,7 @@
             %i.fa.fa-info-circle
             You currently have no rewards.
 
+:javascript
+  $(function(){
+    RigPirate.Tooltip.init()
+  })

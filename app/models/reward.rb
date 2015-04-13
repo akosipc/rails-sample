@@ -6,6 +6,7 @@ class Reward < ActiveRecord::Base
   scope :experience, -> { where(category: "Experience" ) }
   scope :gold, -> { where(category: "Gold" ) }
   scope :others, -> { where(category: "Others" ) }
+  scope :purchaseable_by_gold, -> { where(purchaseable: true) }
 
   def experience?
     category == "Experience"
@@ -13,6 +14,19 @@ class Reward < ActiveRecord::Base
   
   def gold?
     category == "Gold"
+  end
+
+  def purchase!(user)
+    if user.total_gold >= self.purchaseable_for
+      Bounty.create(
+        name:       self.name,
+        amount:     self.amount,
+        category:   self.category,
+        status:     "Requested",
+        user_id:    user.id)
+
+      user.update_attributes(gold_spent: user.gold_spent + self.purchaseable_for)
+    end
   end
 
   rails_admin do
@@ -25,5 +39,7 @@ class Reward < ActiveRecord::Base
       end
     end
     field :quests
+    field :purchaseable
+    field :purchaseable_for
   end
 end

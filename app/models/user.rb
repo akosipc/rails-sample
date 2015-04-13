@@ -39,7 +39,7 @@ class User < ActiveRecord::Base
   end
 
   def total_gold
-    bounties.gold.collect(&:amount_in_numbers).sum
+    bounties.gold.collect(&:amount_in_numbers).sum - gold_spent
   end
 
 end
